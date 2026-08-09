@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mi primera página web</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Archivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Mi primera página web</h1>
+
+        <p>
+            Hola, mi nombre es Anto y estoy aprendiendo
+            <strong>HTML</strong>.
+        </p>
+    </header>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#objetivo">Objetivo</a>
+
+        <a href="https://github.com" target="_blank">
+            GitHub
+        </a>
+
+        <a href="./practica-semantica.html">
+            Práctica Semántica
+        </a>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+
+        <!-- Sección de aprendizaje -->
+        <section>
+            <h2>¿Qué estoy aprendiendo?</h2>
+
+            <p>
+                Estoy aprendiendo a crear la estructura de una página web
+                utilizando etiquetas HTML.
+            </p>
+        </section>
+
+        <!-- Sección de objetivo -->
+        <section id="objetivo">
+            <h2>Mi objetivo</h2>
+
+            <article>
+                <h3>Mi meta en programación</h3>
+
+                <p>
+                    Quiero volverme una profesional en la programación de software,
+                    aprender <strong>HTML y CSS</strong> y dominar muchos otros
+                    lenguajes y herramientas de programación.
+                </p>
+            </article>
+        </section>
+
+        <aside>
+           <h3>Dato interesante</h3>
+           
+           <p>HTML se utiliza para organizar
+        la estructura 
+              del contenido de una página web,
+        y CSS se utiliza 
+            para darle diseño y estilo. 
+           </p>
+        </aside>
+
+        <!-- Enlaces de práctica -->
+        <section>
+            <h2>Enlaces de práctica</h2>
+
+            <p>
+                Visita la página oficial de GitHub:
+            </p>
+
+            <a href="https://github.com" target="_blank">
+                GitHub
+            </a>
+
+            <p>
+                Ir a mi segunda página:
+            </p>
+
+            <a href="./practica-semantica.html">
+                Práctica Semántica
+            </a>
+        </section>
+
+        <!-- Habilidades -->
+        <section>
+            <h2>Mis habilidades</h2>
+
+            <ul>
+                <li>
+                    <strong>HTML:</strong>
+                    Estoy aprendiendo la estructura de las páginas web.
+                </li>
+
+                <li>Aprender CSS</li>
+                <li>Aprender JavaScript</li>
+            </ul>
+        </section>
+
+        <!-- Metas -->
+        <section>
+            <h2>Mis metas en programación</h2>
+
+            <ol>
+                <li>Aprender HTML</li>
+                <li>Aprender CSS</li>
+                <li>Aprender JavaScript</li>
+                <li>Crear mi primera página web</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Lo que estoy aprendiendo</h2>
+
+            <table>
+                <tr>
+                    <th>Lenguaje</th>
+                    <th>Estado</th>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>Aprendiendo</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>Aprendiendo</td>
+                </tr>
+
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Por aprender</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h2>Conctacto</h2>
+
+            <form>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre"
+            name="nombre">
+
+            <br><br>
+
+                 <label for="correo">Correo</label>
+                 <input type="email" id="correo"
+                 name="correo">
+
+                 <br><br> 
+                 <input type="submit" value="Enviar">      
+            </form>
+            </section>
+
+        <!-- Imagen -->
+        <section>
+            <h2>Mi paisaje preferido</h2>
+
+            <img src="./assets/img/paisaje.jpg"
+                 alt="Paisaje con palmeras al
+            atardecer">
+
+            <article>
+                <h3>Sobre la iamgen</h3>
+
+                <p>
+                    Este paisaje representa uno de 
+            mis lugares favoritos 
+                    y hace que mi página tenga un 
+            elemento visual. 
+                </p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>
+            &copy; 2026 Anto - Mi primera página web
+        </p>
+    </footer>
+
+</body>
+
+</html>

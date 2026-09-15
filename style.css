@@ -1,237 +1,691 @@
-/* =========================
-   General
-========================= */
+/* ========================================
+   1. VARIABLES Y ESTILOS GENERALES
+   ======================================== */
+:root {
+    --color-principal: #ff85a2;
+    --color-principal-hover: #ff6584;
+    --color-fondo: #fcf8f6;
+    --color-tarjeta: #ffffff;
+    --color-texto: #4a4a4a;
+    --color-borde: #ffdeeb;
+    --color-rosado-suave: #fff0f5;
+    --fuente-principal: 'PT Sans Narrow', 'Poppins', sans-serif;
+}
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #eef6ff;
-    color: #333333;
-    font-family: "PT Sans Narrow", sans-serif;
-    max-width: 900px;
-    margin: 35px auto;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
 }
 
 
-/* =========================
-   Encabezado
-========================= */
-
+/* ========================================
+   2. ENCABEZADO Y NAVEGACIÓN
+   ======================================== */
 header {
-    background-color: white;
-    padding: 25px;
+    background-color: var(--color-tarjeta);
+    border-bottom: 2px solid var(--color-borde);
     text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    padding: 40px 20px 25px;
+    position: relative;
 }
 
+header h1 {
+    color: var(--color-principal);
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
-/* =========================
-   Navegación
-========================= */
+header p {
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
+
+.menu-hamburguesa {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--color-principal);
+    cursor: pointer;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
 
 nav {
     display: flex;
     justify-content: center;
     gap: 30px;
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-tarjeta);
+    padding: 14px 20px;
     position: sticky;
-    top: 10px;
+    top: 0;
     z-index: 100;
-    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-a {
-    color: #0f4c81;
+nav a {
+    color: var(--color-texto);
     text-decoration: none;
-    font-size: 18px;
     font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 20px;
     transition: 0.3s;
 }
 
-a:hover {
+nav a:hover,
+nav a.activo {
     color: white;
-    background-color: #0f4c81;
-    padding: 8px 12px;
-    border-radius: 8px;
+    background-color: var(--color-principal);
 }
 
 
-/* =========================
-   Contenido principal
-========================= */
-
+/* ========================================
+   3. CONTENIDO PRINCIPAL / SECCIONES GENERALES
+   ======================================== */
 main {
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 section {
-    margin-bottom: 30px;
-    padding: 20px;
-    border-radius: 12px;
-    background-color: #eaf3ff;
+    padding: 50px 15px;
 }
 
-aside {
-    background-color: #eaf3ff;
-    padding: 20px;
-    border-left: 5px solid #0f4c81;
-    border-radius: 10px;
-    margin: 25px 0;
-}
-
-
-/* =========================
-   Títulos
-========================= */
-
-h1 {
-    color: #0f4c81;
+section h2 {
     text-align: center;
-    font-size: 2.5rem;
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    margin: 0 auto;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: var(--color-principal);
+    font-size: 2rem;
+    margin-bottom: 18px;
 }
 
-h2 {
-    color: #0f4c81;
-    border-bottom: 2px solid #0f4c81;
-    padding-bottom: 8px;
-    padding-left: 15px;
-    margin-top: 40px;
+section > p {
     text-align: center;
+    max-width: 700px;
+    margin: 0 auto 20px;
 }
 
-h3 {
+
+/* ========================================
+   4. INICIO / HERO
+   ======================================== */
+#inicio {
     text-align: center;
-    font-style: italic;
-    background-color: #eaf3ff;
-    padding: 15px;
-    border-radius: 10px;
-    border: 2px solid #0f4c81;
+    padding: 60px 20px;
 }
 
-
-/* =========================
-   Texto
-========================= */
-
-p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: justify;
+#inicio h2 {
+    font-size: 2.3rem;
 }
 
-strong {
-    display: inline;
-}
-
-
-/* =========================
-   Listas
-========================= */
-
-ul,
-ol {
-    background-color: white;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-li:hover {
-    color: #0f4c81;
+#inicio a,
+#contacto a {
+    display: inline-block;
+    background-color: var(--color-principal);
+    color: white;
+    padding: 13px 26px;
+    border-radius: 30px;
+    text-decoration: none;
     font-weight: 700;
+    margin-top: 10px;
     transition: 0.3s;
+    box-shadow: 0 5px 12px rgba(255, 133, 162, 0.3);
+}
+
+#inicio a:hover,
+#contacto a:hover {
+    background-color: var(--color-principal-hover);
+    transform: translateY(-3px);
 }
 
 
-/* =========================
-   Imágenes
-========================= */
-
-img {
-    max-width: 100%;
-    border-radius: 10px;
-    border: 4px solid white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: block;
-    margin: 20px auto;
-    transition: 0.3s;
-}
-
-img:hover {
-    transform: scale(1.03);
+/* ========================================
+   5. AVISO BAJO PEDIDO
+   ======================================== */
+.aviso-bajo-pedido {
+    text-align: center;
+    background-color: var(--color-rosado-suave);
+    color: var(--color-principal-hover);
+    font-weight: 700;
+    padding: 12px;
 }
 
 
-/* =========================
-   Tablas
-========================= */
+/* ========================================
+   6. BUSCADOR
+   ======================================== */
+.contenedor-buscador {
+    margin: 25px auto;
+    max-width: 450px;
+    text-align: center;
+    padding: 0 15px;
+}
 
-table {
+.input-buscador-tejebonito {
     width: 100%;
-    border-collapse: collapse;
+    padding: 12px 18px;
+    border: 2px solid var(--color-borde);
+    border-radius: 25px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
 }
 
-th,
-td {
-    padding: 10px;
-    border: 1px solid #0f4c81;
-}
-
-th {
-    background-color: #eaf3ff;
+.input-buscador-tejebonito:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 8px rgba(255, 133, 162, 0.3);
 }
 
 
-/* =========================
-   Formularios
-========================= */
-
-form {
-    background-color: #eaf3ff;
-    padding: 20px;
-    border-radius: 10px;
+/* ========================================
+   7. CATÁLOGO DE PRODUCTOS
+   ======================================== */
+#productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
 }
 
-input {
-    padding: 10px;
-    border: 1px solid #0f4c81;
+#productos h2,
+#productos > p {
+    grid-column: 1 / -1;
+}
+
+#productos article {
+    background-color: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    padding: 18px;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#productos article:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(255, 133, 162, 0.2);
+}
+
+#productos article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: zoom-in;
+}
+
+#productos article h3 {
+    color: var(--color-principal);
+    margin-bottom: 6px;
+}
+
+.precio {
+    color: var(--color-principal-hover);
+    font-size: 1.1rem;
+    margin: 6px 0;
+}
+
+.btn-favorito {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.15);
+}
+
+.btn-favorito.es-favorito {
+    background-color: var(--color-rosado-suave);
+}
+
+.personalizacion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.personalizacion label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-principal-hover);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-color,
+.input-tamano,
+.input-cantidad {
+    padding: 8px 10px;
+    border: 1px solid var(--color-borde);
     border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: var(--fuente-principal);
 }
 
-label {
+.input-color:focus,
+.input-tamano:focus,
+.input-cantidad:focus {
+    outline: 2px solid var(--color-principal);
+}
+
+.btn-agregar-pedido {
+    width: 100%;
+    margin-top: 12px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--fuente-principal);
+    transition: background-color 0.2s ease;
+}
+
+.btn-agregar-pedido:hover {
+    background-color: var(--color-principal-hover);
+}
+
+.producto-imagen {
+    cursor: pointer;
+}
+
+
+/* ========================================
+   8. DATO INTERESANTE / SOBRE NOSOTROS
+   ======================================== */
+aside {
+    background-color: var(--color-rosado-suave);
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 16px;
+    margin: 20px auto;
+    max-width: 700px;
+}
+
+aside h3 {
+    color: var(--color-principal);
+    margin-bottom: 8px;
+}
+
+#nosotros {
+    text-align: center;
+}
+
+#nosotros p:last-child {
+    color: var(--color-principal-hover);
     font-weight: 700;
 }
 
 
-/* =========================
-   Pie de página
-========================= */
+/* ========================================
+   9. ASISTENTE DE ESTILO
+   ======================================== */
+#asistente-estilo {
+    background-color: var(--color-tarjeta);
+    border-radius: 20px;
+    margin: 30px auto;
+}
+
+.asistente-contenedor {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.paso-asistente {
+    display: none;
+}
+
+.paso-asistente.activo {
+    display: block;
+}
+
+.paso-asistente h3 {
+    color: var(--color-principal-hover);
+    margin-bottom: 18px;
+}
+
+.opciones-asistente {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.opciones-asistente button {
+    background-color: var(--color-rosado-suave);
+    border: 2px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: 14px;
+    border-radius: 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: var(--fuente-principal);
+    transition: 0.2s;
+}
+
+.opciones-asistente button:hover {
+    background-color: var(--color-principal);
+    color: white;
+    border-color: var(--color-principal);
+}
+
+.resumen-recomendacion {
+    background-color: var(--color-rosado-suave);
+    border-radius: 14px;
+    padding: 18px;
+    margin: 16px 0;
+    text-align: left;
+}
+
+.btn-vaciar-carrito {
+    background-color: transparent;
+    border: 2px solid var(--color-principal);
+    color: var(--color-principal);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: var(--fuente-principal);
+}
+
+.btn-vaciar-carrito:hover {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+
+/* ========================================
+   10. CONTACTO Y PIE DE PÁGINA
+   ======================================== */
+#contacto {
+    text-align: center;
+}
 
 footer {
-    background-color: #0f4c81;
+    background-color: var(--color-principal);
     color: white;
     text-align: center;
-    padding: 15px;
-    margin-top: 30px;
-    border-radius: 10px;
+    padding: 20px;
+}
+
+
+/* ========================================
+   11. BOTONES FLOTANTES
+   ======================================== */
+#volverArriba {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#volverArriba:hover {
+    background-color: var(--color-principal-hover);
+    transform: scale(1.1);
+}
+
+#whatsappFlotante {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#whatsappFlotante:hover {
+    background-color: #1ebe5b;
+}
+
+
+/* ========================================
+   12. GALERÍA / LIGHTBOX
+   ======================================== */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.esta-abierto {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+}
+
+.lightbox__cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+
+
+/* ========================================
+   13. CARRITO Y FAVORITOS (PANELES)
+   ======================================== */
+#btnCarrito {
+    position: fixed;
+    bottom: 145px;
+    right: 20px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#btnFavoritos {
+    position: fixed;
+    bottom: 205px;
+    right: 20px;
+    background-color: var(--color-principal-hover);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.panel-carrito,
+.panel-favoritos {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 300px;
+    height: 100%;
+    background-color: var(--color-tarjeta);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
+    z-index: 1500;
+    padding: 24px 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+}
+
+.panel-carrito.esta-abierto,
+.panel-favoritos.esta-abierto {
+    display: block;
+    right: 0;
+}
+
+.panel-carrito h3,
+.panel-favoritos h3 {
+    color: var(--color-principal);
+    margin-bottom: 14px;
+}
+
+.panel-carrito ul,
+.panel-favoritos ul {
+    list-style: none;
+    margin-bottom: 14px;
+}
+
+.panel-carrito li {
+    background-color: var(--color-rosado-suave);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.favorito-item {
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.favorito-item:hover {
+    background-color: var(--color-rosado-suave);
+}
+
+.total-carrito {
+    font-size: 1.05rem;
+    margin: 14px 0;
+    text-align: center;
+}
+
+.boton-whatsapp-pedido {
+    display: block;
+    text-align: center;
+    background-color: #25D366;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.resaltado-temporal {
+    box-shadow: 0 0 0 3px var(--color-principal) !important;
+}
+
+
+/* ========================================
+   14. NOTIFICACIÓN TOAST
+   ======================================== */
+.toast-notification {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-principal);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.toast-notification.mostrar {
+    display: flex;
+    animation: aparecerToast 0.3s ease;
+}
+
+@keyframes aparecerToast {
+    from { opacity: 0; transform: translateX(-50%) translateY(15px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+
+/* ========================================
+   15. RESPONSIVE
+   ======================================== */
+@media (max-width: 700px) {
+    .menu-hamburguesa {
+        display: block;
+    }
+
+    #navTeje {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #navTeje.esta-abierto {
+        display: flex;
+    }
+
+    .panel-carrito,
+    .panel-favoritos {
+        width: 85%;
+    }
 }

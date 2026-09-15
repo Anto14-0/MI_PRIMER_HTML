@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Privada de Precios 🧶 - TEJEBONITO</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Archivo CSS Principal de Tejebonito -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Estilos exclusivos para la calculadora privada */
+        .contenedor-calculadora {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: var(--color-tarjeta);
+            border: 2px solid var(--color-borde);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(255, 133, 162, 0.15);
+        }
+
+        .titulo-privado {
+            text-align: center;
+            color: var(--color-principal);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitulo-privado {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .grupo-campo {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grupo-campo label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: var(--color-texto);
+        }
+
+        .grupo-campo input {
+            padding: 10px 14px;
+            border: 1px solid var(--color-borde);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .grupo-campo input:focus {
+            border-color: var(--color-principal);
+        }
+
+        .btn-calcular {
+            width: 100%;
+            background-color: var(--color-principal);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-calcular:hover {
+            background-color: var(--color-principal-hover);
+        }
+
+        .caja-resultado {
+            display: none;
+            margin-top: 25px;
+            padding: 18px;
+            background-color: var(--color-rosado-suave);
+            border: 1px dashed var(--color-principal);
+            border-radius: 14px;
+        }
+
+        .caja-resultado h3 {
+            color: var(--color-principal);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .fila-desglose {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+        }
+
+        .fila-precio-final {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 2px solid var(--color-borde);
+            color: var(--color-texto);
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="contenedor-calculadora">
+            <h1 class="titulo-privado">Calculadora TEJEBONITO 🧶</h1>
+            <p class="subtitulo-privado">🔒 Panel privado para cotizar y calcular precios de venta</p>
+
+            <form id="formCalculadora" onsubmit="realizarCalculo(event)">
+                <div class="grupo-campo">
+                    <label for="materiales">🧵 Costo de materiales ($ COP):</label>
+                    <input type="number" id="materiales" placeholder="Ej: 4000 (hilos, ojitos, empaque)" required min="0">
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="horas">⏱️ Horas de tejido dedicadas:</label>
+                    <input type="number" id="horas" step="0.5" placeholder="Ej: 2 (puedes usar 1.5)" required min="0">
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="valorHora">💵 Valor de tu hora de trabajo ($ COP):</label>
+                    <input type="number" id="valorHora" value="5000" placeholder="Ej: 5000" required min="0">
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="ganancia">📈 % Ganancia para el emprendimiento:</label>
+                    <input type="number" id="ganancia" value="30" placeholder="Ej: 30" required min="0">
+                </div>
+
+                <button type="submit" class="btn-calcular">✨ Calcular precio ideal</button>
+            </form>
+
+            <div id="cajaResultado" class="caja-resultado">
+                <h3>Desglose del Precio 🌸</h3>
+                <div class="fila-desglose">
+                    <span>Mano de obra:</span>
+                    <span id="resManoObra">$0 COP</span>
+                </div>
+                <div class="fila-desglose">
+                    <span>Costo base total:</span>
+                    <span id="resCostoBase">$0 COP</span>
+                </div>
+                <div class="fila-desglose">
+                    <span>Ganancia pura para negocio:</span>
+                    <span id="resGanancia">$0 COP</span>
+                </div>
+                <div class="fila-precio-final">
+                    <span>Precio final sugerido:</span>
+                    <span id="resPrecioFinal" style="color: var(--color-principal);">$0 COP</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="calculadora.js"></script>
+</body>
+</html>

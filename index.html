@@ -1,205 +1,283 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">cd
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Mi primera página web</title>
+    <title>TEJEBONITO 🧶 - Crochet hecho a mano</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Archivo CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- Encabezado -->
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
     <header>
-        <h1>Mi primera página web - Git</h1>
-
-        <p>
-            Hola, mi nombre es Anto y estoy aprendiendo
-            <strong>HTML</strong>.
-        </p>
+        <h1>TEJEBONITO 🧶</h1>
+        <p>Crochet hecho a mano con amor y creatividad.</p>
+        <button class="menu-hamburguesa" id="botonMenuTeje" aria-label="Abrir menú">☰</button>
     </header>
 
-    <!-- Menú de navegación -->
-    <nav>
-        <a href="#objetivo">Objetivo</a>
-
-        <a href="https://github.com" target="_blank">
-            GitHub
-        </a>
-
-        <a href="./practica-semantica.html">
-            Práctica Semántica
-        </a>
+    <nav id="navTeje">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#contacto">Contacto</a>
     </nav>
 
-    <!-- Contenido principal -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main>
-
-        <!-- Sección de aprendizaje -->
-        <section>
-            <h2>¿Qué estoy aprendiendo?</h2>
-
+        <!-- INICIO -->
+        <section id="inicio">
+            <h2>Detalles que cobran vida con cada puntada ✨</h2>
             <p>
-                Estoy aprendiendo a crear la estructura de una página web
-                utilizando etiquetas HTML.
+                Bienvenida a TEJEBONITO, un espacio donde cada creación
+                nace de la creatividad, la dedicación y el amor por el crochet.
             </p>
+            <a href="#productos">Descubre todos nuestros productos 🧶</a>
         </section>
 
-        <!-- Sección de objetivo -->
-        <section id="objetivo">
-            <h2>Mi objetivo</h2>
+        <!-- AVISO BAJO PEDIDO -->
+        <p class="aviso-bajo-pedido">
+            🧶 Todas nuestras creaciones son hechas bajo pedido y 100% personalizadas — tiempo de entrega estimado: 5-7 días.
+        </p>
+
+        <div class="contenedor-buscador">
+            <input type="text" id="inputBuscador" class="input-buscador-tejebonito" placeholder="🔍 Buscar scrunchies, tops, accesorios...">
+        </div>
+
+        <!-- PRODUCTOS -->
+        <section id="productos">
+            <h2>Descubre nuestras creaciones 🧶</h2>
+            <p>
+                Pequeños detalles tejidos a mano, ideales para acompañar
+                tus momentos favoritos y darle un toque especial a tu día.
+            </p>
 
             <article>
-                <h3>Mi meta en programación</h3>
+                <button class="btn-favorito" data-nombre="Posavasos" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/p.png" alt="Posavasos tejido a crochet" class="producto-imagen">
+                <h3>Posavasos 🧶</h3>
+                <p>Posavasos tejidos a mano, ideales para darle un toque especial a cualquier espacio.</p>
 
-                <p>
-                    Quiero volverme una profesional en la programación de software,
-                    aprender <strong>HTML y CSS</strong> y dominar muchos otros
-                    lenguajes y herramientas de programación.
-                </p>
+                <p class="precio"><strong>$12.000 COP</strong></p>
+
+                <div class="personalizacion">
+                    <label>
+                        Tamaño / detalle
+                        <input type="text" class="input-tamano" placeholder="Ej: mediano, circular">
+                    </label>
+                    <label>
+                        Cantidad
+                        <input type="number" class="input-cantidad" value="1" min="1">
+                    </label>
+                </div>
+
+                <button class="btn-agregar-pedido" data-nombre="Posavasos" data-precio="12000">Agregar al pedido</button>
+            </article>
+
+            <article>
+                <button class="btn-favorito" data-nombre="Marcapáginas" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/marcapáginas.png" alt="Marcapáginas tejido a crochet" class="producto-imagen">
+                <h3>Marcapáginas 🧶</h3>
+                <p>Marcapáginas tejidos para acompañar tus momentos favoritos de lectura.</p>
+
+                <p class="precio"><strong>$10.000 COP</strong></p>
+
+                <div class="personalizacion">
+                    <label>
+                        Color / detalle
+                        <input type="text" class="input-color" placeholder="Ej: amarillo girasol">
+                    </label>
+                    <label>
+                        Cantidad
+                        <input type="number" class="input-cantidad" value="1" min="1">
+                    </label>
+                </div>
+
+                <button class="btn-agregar-pedido" data-nombre="Marcapáginas" data-precio="10000">Agregar al pedido</button>
+            </article>
+
+            <article>
+                <button class="btn-favorito" data-nombre="Cintillo" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/cintillo.png" alt="Cintillo tejido a crochet" class="producto-imagen">
+                <h3>Cintillo 🧶</h3>
+                <p>Cintillos tejidos a mano que combinan creatividad y estilo.</p>
+
+                <p class="precio"><strong>$18.000 COP</strong></p>
+
+                <div class="personalizacion">
+                    <label>
+                        Color / detalle
+                        <input type="text" class="input-color" placeholder="Ej: beige, tono natural">
+                    </label>
+                    <label>
+                        Cantidad
+                        <input type="number" class="input-cantidad" value="1" min="1">
+                    </label>
+                </div>
+
+                <button class="btn-agregar-pedido" data-nombre="Cintillo" data-precio="18000">Agregar al pedido</button>
+            </article>
+
+            <article>
+                <button class="btn-favorito" data-nombre="Scrunchie" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/scrunchie a crochet.png" alt="Scrunchie tejido a crochet" class="producto-imagen">
+                <h3>Scrunchie 🧶</h3>
+                <p>Scrunchies tejidos a mano, suaves y resistentes, perfectos para darle un toque tierno a tu look.</p>
+
+                <p class="precio"><strong>$8.000 COP</strong></p>
+
+                <div class="personalizacion">
+                    <label>
+                        Color
+                        <input type="text" class="input-color" placeholder="Ej: rosa pastel">
+                    </label>
+                    <label>
+                        Cantidad
+                        <input type="number" class="input-cantidad" value="1" min="1">
+                    </label>
+                </div>
+
+                <button class="btn-agregar-pedido" data-nombre="Scrunchie" data-precio="8000">Agregar al pedido</button>
             </article>
         </section>
 
+        <!-- DATO INTERESANTE -->
         <aside>
-           <h3>Dato interesante</h3>
-           
-           <p>HTML se utiliza para organizar
-        la estructura 
-              del contenido de una página web,
-        y CSS se utiliza 
-            para darle diseño y estilo. 
-           </p>
+            <h3>Dato interesante</h3>
+            <p>Cada creación de TEJEBONITO está hecha a mano, cuidando cada detalle del proceso.</p>
         </aside>
 
-        <!-- Enlaces de práctica -->
-        <section>
-            <h2>Enlaces de práctica</h2>
-
+        <!-- SOBRE NOSOTROS -->
+        <section id="nosotros">
+            <h2>Conoce TEJEBONITO</h2>
             <p>
-                Visita la página oficial de GitHub:
+                TEJEBONITO nació de mi gusto por el crochet
+                y de las ganas de transformar hilos y creatividad
+                en pequeños detalles hechos a mano con amor y dedicación.
             </p>
-
-            <a href="https://github.com" target="_blank">
-                GitHub
-            </a>
-
             <p>
-                Ir a mi segunda página:
+                Cada creación lleva tiempo, dedicación y cariño.
+                Mi objetivo es seguir aprendiendo, crear diseños
+                únicos y compartir la magia del crochet con otras personas.
             </p>
-
-            <a href="./practica-semantica.html">
-                Práctica Semántica
-            </a>
+            <p>🧶 Hecho a mano &nbsp; ✨ Creativo &nbsp; 💖 Con dedicación</p>
         </section>
 
-        <!-- Habilidades -->
-        <section>
-            <h2>Mis habilidades</h2>
+        <!-- ASISTENTE DE ESTILO Y REGALOS -->
+        <section id="asistente-estilo">
+            <h2>¿No sabes qué elegir o qué colores combinar? 🧶✨</h2>
+            <p>Responde estas breves preguntas y te ayudaremos a armar el pedido ideal con la paleta de colores perfecta.</p>
 
-            <ul>
-                <li>
-                    <strong>HTML:</strong>
-                    Estoy aprendiendo la estructura de las páginas web.
-                </li>
+            <div class="asistente-contenedor">
+                <!-- PASO 1 -->
+                <div class="paso-asistente activo" id="paso1">
+                    <h3>1. ¿Para quién es este detalle?</h3>
+                    <div class="opciones-asistente">
+                        <button onclick="seleccionarOpcion('destino', 'Un regalo especial', 2)">🎁 Es un regalo</button>
+                        <button onclick="seleccionarOpcion('destino', 'Un antojo personal', 2)">✨ Es un autorregalo</button>
+                    </div>
+                </div>
 
-                <li>Aprender CSS</li>
-                <li>Aprender JavaScript</li>
-            </ul>
+                <!-- PASO 2 -->
+                <div class="paso-asistente" id="paso2">
+                    <h3>2. ¿Cuál es la vibra o estilo de colores que prefieres?</h3>
+                    <div class="opciones-asistente">
+                        <button onclick="seleccionarOpcion('paleta', 'Rosa pastel + Crema', 3)">🌸 Pastel / Aesthetic (Rosa + Crema)</button>
+                        <button onclick="seleccionarOpcion('paleta', 'Beige + Terracota + Marrón', 3)">🍂 Tonos Tierra (Beige + Terracota)</button>
+                        <button onclick="seleccionarOpcion('paleta', 'Amarillo girasol + Verde menta', 3)">🌻 Cálido & Alegre (Amarillo + Menta)</button>
+                        <button onclick="seleccionarOpcion('paleta', 'Lila + Azul cielo', 3)">💜 Vibrante (Lila + Azul cielo)</button>
+                    </div>
+                </div>
+
+                <!-- PASO 3 -->
+                <div class="paso-asistente" id="paso3">
+                    <h3>3. ¿Qué tipo de uso le darás?</h3>
+                    <div class="opciones-asistente">
+                        <button onclick="finalizarAsistente('Scrunchie', 8000)">💇‍♀️ Para el cabello / Look diario</button>
+                        <button onclick="finalizarAsistente('Marcapáginas', 10000)">📚 Para acompañar lecturas</button>
+                        <button onclick="finalizarAsistente('Posavasos', 12000)">☕ Para decorar la mesa / escritorio</button>
+                        <button onclick="finalizarAsistente('Cintillo', 18000)">👑 Un accesorio llamativo y moderno</button>
+                    </div>
+                </div>
+
+                <!-- RESULTADO -->
+                <div class="paso-asistente" id="pasoResultado">
+                    <h3>¡Tu combinación perfecta está lista! 🎉</h3>
+                    <div id="resumenRecomendacion" class="resumen-recomendacion"></div>
+                    <button id="btnAgregarAsistente" class="btn-agregar-pedido">🛍️ Agregar esta combinación al pedido</button>
+                    <br><br>
+                    <button onclick="reiniciarAsistente()" class="btn-vaciar-carrito">🔄 Volver a intentar</button>
+                </div>
+            </div>
         </section>
 
-        <!-- Metas -->
-        <section>
-            <h2>Mis metas en programación</h2>
-
-            <ol>
-                <li>Aprender HTML</li>
-                <li>Aprender CSS</li>
-                <li>Aprender JavaScript</li>
-                <li>Crear mi primera página web</li>
-            </ol>
+        <!-- CONTACTO -->
+        <section id="contacto">
+            <h2>¿Hablamos? ✉️</h2>
+            <p>
+                ¿Te gusta alguna de nuestras creaciones?
+                Escríbenos para conocer más sobre nuestros productos,
+                consultar disponibilidad o realizar un pedido.
+            </p>
+            <a href="https://wa.me/57TU_NUMERO" target="_blank">Contáctame</a>
         </section>
-
-        <section>
-            <h2>Lo que estoy aprendiendo</h2>
-
-            <table>
-                <tr>
-                    <th>Lenguaje</th>
-                    <th>Estado</th>
-                </tr>
-                <tr>
-                    <td>HTML</td>
-                    <td>Aprendiendo</td>
-                </tr>
-                <tr>
-                    <td>CSS</td>
-                    <td>Aprendiendo</td>
-                </tr>
-
-                <tr>
-                    <td>JavaScript</td>
-                    <td>Por aprender</td>
-                </tr>
-            </table>
-        </section>
-
-        <section>
-            <h2>Conctacto</h2>
-
-            <form>
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre"
-            name="nombre">
-
-            <br><br>
-
-                 <label for="correo">Correo</label>
-                 <input type="email" id="correo"
-                 name="correo">
-
-                 <br><br> 
-                 <input type="submit" value="Enviar">      
-            </form>
-            </section>
-
-        <!-- Imagen -->
-        <section>
-            <h2>Mi paisaje preferido</h2>
-
-            <img src="./assets/img/paisaje.jpg"
-                 alt="Paisaje con palmeras al
-            atardecer">
-
-            <article>
-                <h3>Sobre la iamgen</h3>
-
-                <p>
-                    Este paisaje representa uno de 
-            mis lugares favoritos 
-                    y hace que mi página tenga un 
-            elemento visual. 
-                </p>
-            </article>
-        </section>
-
     </main>
 
-    <!-- Pie de página -->
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>
-            &copy; 2026 Anto - Mi primera página web
-        </p>
+        <p>&copy; 2026 TEJEBONITO - Crochet hecho a mano 🧶</p>
     </footer>
 
-</body>
+    <!-- BOTONES FLOTANTES Y PANELES -->
+    <button id="volverArriba" title="Volver arriba">↑</button>
 
+    <a id="whatsappFlotante" href="https://wa.me/57TU_NUMERO" target="_blank" title="Escríbenos por WhatsApp">💬</a>
+
+    <!-- GALERÍA / LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox__cerrar" id="cerrarLightbox">&times;</span>
+        <img src="" alt="" id="lightboxImagen">
+    </div>
+
+    <!-- CARRITO DE PEDIDO -->
+    <button id="btnCarrito" title="Ver pedido">
+        🛒 <span id="contadorCarrito">0</span>
+    </button>
+
+    <div class="panel-carrito" id="panelCarrito">
+        <h3>Tu pedido</h3>
+        <ul id="listaCarrito"></ul>
+        <p id="carritoVacioMsg">Aún no has agregado productos.</p>
+        <p id="totalCarrito" class="total-carrito">Total: <strong>$0 COP</strong></p>
+        <button id="btnVaciarCarrito" class="btn-vaciar-carrito">Vaciar carrito</button>
+        <a href="#" id="btnEnviarPedido" class="boton-whatsapp-pedido" target="_blank">Enviar pedido por WhatsApp</a>
+    </div>
+
+    <!-- FAVORITOS -->
+    <button id="btnFavoritos" title="Ver favoritos">
+        ❤️ <span id="contadorFavoritos">0</span>
+    </button>
+
+    <div class="panel-favoritos" id="panelFavoritos">
+        <h3>Tus favoritos</h3>
+        <ul id="listaFavoritos"></ul>
+        <p id="favoritosVacioMsg">Aún no tienes favoritos.</p>
+    </div>
+
+    <!-- NOTIFICACIÓN FLOTANTE (TOAST) -->
+    <div id="toastNotification" class="toast-notification">
+        <span id="toastIcon">✨</span>
+        <span id="toastMessage">¡Producto agregado con éxito!</span>
+    </div>
+
+   <!-- Archivo JS para la calculadora de costos -->
+    <script src="calculadora.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>

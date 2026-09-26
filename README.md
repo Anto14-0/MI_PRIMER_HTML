@@ -16,7 +16,6 @@ hechos a mano como:
 -Cintillos
 -Marcápáginas
 -Posavasos
--Amigurumis
 
 ##Proposito
 Ofrecer productos de crochet

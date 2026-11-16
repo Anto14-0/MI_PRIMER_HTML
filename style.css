@@ -1,6 +1,7 @@
 /* ========================================
    1. VARIABLES Y ESTILOS GENERALES
    ======================================== */
+
 :root {
     --color-principal: #ff85a2;
     --color-principal-hover: #ff6584;
@@ -33,6 +34,7 @@ body {
 /* ========================================
    2. ENCABEZADO Y NAVEGACIÓN
    ======================================== */
+
 header {
     background-color: var(--color-tarjeta);
     border-bottom: 2px solid var(--color-borde);
@@ -95,8 +97,9 @@ nav a.activo {
 
 
 /* ========================================
-   3. CONTENIDO PRINCIPAL / SECCIONES GENERALES
+   3. CONTENIDO PRINCIPAL
    ======================================== */
+
 main {
     max-width: 1100px;
     margin: 0 auto;
@@ -124,6 +127,7 @@ section > p {
 /* ========================================
    4. INICIO / HERO
    ======================================== */
+
 #inicio {
     text-align: center;
     padding: 60px 20px;
@@ -157,6 +161,7 @@ section > p {
 /* ========================================
    5. AVISO BAJO PEDIDO
    ======================================== */
+
 .aviso-bajo-pedido {
     text-align: center;
     background-color: var(--color-rosado-suave);
@@ -169,6 +174,7 @@ section > p {
 /* ========================================
    6. BUSCADOR
    ======================================== */
+
 .contenedor-buscador {
     margin: 25px auto;
     max-width: 450px;
@@ -185,6 +191,7 @@ section > p {
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     background-color: #ffffff;
+    font-family: var(--fuente-principal);
 }
 
 .input-buscador-tejebonito:focus {
@@ -196,6 +203,7 @@ section > p {
 /* ========================================
    7. CATÁLOGO DE PRODUCTOS
    ======================================== */
+
 #productos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -244,6 +252,11 @@ section > p {
     margin: 6px 0;
 }
 
+
+/* ========================================
+   FAVORITOS DE PRODUCTOS
+   ======================================== */
+
 .btn-favorito {
     position: absolute;
     top: 14px;
@@ -257,6 +270,7 @@ section > p {
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
     transition: transform 0.2s ease;
+    z-index: 2;
 }
 
 .btn-favorito:hover {
@@ -266,6 +280,11 @@ section > p {
 .btn-favorito.es-favorito {
     background-color: var(--color-rosado-suave);
 }
+
+
+/* ========================================
+   PERSONALIZACIÓN DE PRODUCTOS
+   ======================================== */
 
 .personalizacion {
     display: flex;
@@ -300,6 +319,11 @@ section > p {
     outline: 2px solid var(--color-principal);
 }
 
+
+/* ========================================
+   BOTÓN AGREGAR AL PEDIDO
+   ======================================== */
+
 .btn-agregar-pedido {
     width: 100%;
     margin-top: 12px;
@@ -324,8 +348,28 @@ section > p {
 
 
 /* ========================================
+   ⭐ MÁS VENDIDO
+   ======================================== */
+
+.badge-mas-vendido {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: var(--color-principal);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(255, 133, 162, 0.25);
+    z-index: 2;
+}
+
+
+/* ========================================
    8. DATO INTERESANTE / SOBRE NOSOTROS
    ======================================== */
+
 aside {
     background-color: var(--color-rosado-suave);
     text-align: center;
@@ -353,6 +397,7 @@ aside h3 {
 /* ========================================
    9. ASISTENTE DE ESTILO
    ======================================== */
+
 #asistente-estilo {
     background-color: var(--color-tarjeta);
     border-radius: 20px;
@@ -430,6 +475,7 @@ aside h3 {
 /* ========================================
    10. CONTACTO Y PIE DE PÁGINA
    ======================================== */
+
 #contacto {
     text-align: center;
 }
@@ -445,6 +491,7 @@ footer {
 /* ========================================
    11. BOTONES FLOTANTES
    ======================================== */
+
 #volverArriba {
     display: none;
     position: fixed;
@@ -494,6 +541,7 @@ footer {
 /* ========================================
    12. GALERÍA / LIGHTBOX
    ======================================== */
+
 .lightbox {
     display: none;
     position: fixed;
@@ -525,8 +573,9 @@ footer {
 
 
 /* ========================================
-   13. CARRITO Y FAVORITOS (PANELES)
+   13. CARRITO Y FAVORITOS
    ======================================== */
+
 #btnCarrito {
     position: fixed;
     bottom: 145px;
@@ -570,7 +619,7 @@ footer {
     background-color: var(--color-tarjeta);
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
     z-index: 1500;
-    padding: 24px 20px;
+    padding: 24px 20px 30px;
     overflow-y: auto;
     transition: right 0.3s ease;
 }
@@ -579,6 +628,26 @@ footer {
 .panel-favoritos.esta-abierto {
     display: block;
     right: 0;
+}
+
+.panel-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-rosado-suave);
+    color: var(--color-principal-hover);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.panel-close:hover {
+    background: var(--color-principal);
+    color: white;
 }
 
 .panel-carrito h3,
@@ -630,6 +699,10 @@ footer {
     margin-top: 10px;
 }
 
+.boton-whatsapp-pedido:hover {
+    background-color: #1ebe5b;
+}
+
 .resaltado-temporal {
     box-shadow: 0 0 0 3px var(--color-principal) !important;
 }
@@ -638,6 +711,7 @@ footer {
 /* ========================================
    14. NOTIFICACIÓN TOAST
    ======================================== */
+
 .toast-notification {
     display: none;
     position: fixed;
@@ -661,15 +735,24 @@ footer {
 }
 
 @keyframes aparecerToast {
-    from { opacity: 0; transform: translateX(-50%) translateY(15px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 
 /* ========================================
    15. RESPONSIVE
    ======================================== */
+
 @media (max-width: 700px) {
+
     .menu-hamburguesa {
         display: block;
     }
@@ -678,14 +761,295 @@ footer {
         display: none;
         flex-direction: column;
         width: 100%;
+        gap: 8px;
+        padding: 10px 20px 15px;
     }
 
     #navTeje.esta-abierto {
         display: flex;
     }
 
+    #navTeje a {
+        text-align: center;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    #inicio h2 {
+        font-size: 1.9rem;
+    }
+
+    section {
+        padding: 40px 10px;
+    }
+
+    #productos {
+        grid-template-columns: 1fr;
+    }
+
     .panel-carrito,
     .panel-favoritos {
         width: 85%;
     }
+
+    .badge-mas-vendido {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+
+    #whatsappFlotante {
+        right: 15px;
+    }
+
+    #btnCarrito {
+        right: 15px;
+    }
+
+    #btnFavoritos {
+        right: 15px;
+    }
+
+    #volverArriba {
+        right: 15px;
+    }
+}
+
+/* =========================================
+   CATEGORÍAS
+========================================= */
+
+.seccion-categorias {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 1100px;
+}
+
+.seccion-categorias h2 {
+    color: var(--color-principal);
+    margin-bottom: 20px;
+}
+
+.categorias-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn-categoria {
+    border: 2px solid var(--color-borde);
+    background-color: white;
+    color: var(--color-texto);
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-categoria:hover {
+    background-color: var(--color-rosado-suave);
+    border-color: var(--color-principal);
+    transform: translateY(-2px);
+}
+
+.btn-categoria.activo {
+    background-color: var(--color-principal);
+    color: white;
+    border-color: var(--color-principal);
+}
+
+
+/* =========================================
+   ¿POR QUÉ ELEGIR TEJEBONITO?
+========================================= */
+
+.seccion-beneficios {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--color-rosado-suave);
+    border-radius: 20px;
+}
+
+.seccion-beneficios h2 {
+    color: var(--color-principal);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.intro-beneficios {
+    color: var(--color-texto);
+    margin-bottom: 30px;
+}
+
+.beneficios-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.beneficio-card {
+    background-color: var(--color-tarjeta);
+    padding: 25px 18px;
+    border-radius: 16px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.beneficio-icono {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.beneficio-card h3 {
+    color: var(--color-principal);
+    margin-bottom: 10px;
+}
+
+.beneficio-card p {
+    color: var(--color-texto);
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .beneficios-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .seccion-categorias {
+        padding: 15px 10px;
+    }
+
+    .btn-categoria {
+        font-size: 14px;
+        padding: 9px 14px;
+    }
+
+    .beneficios-container {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-beneficios {
+        margin: 40px 15px;
+        padding: 30px 15px;
+    }
+
+    .seccion-beneficios h2 {
+        font-size: 25px;
+    }
+
+}
+
+/* =========================================
+   MODO CLARO / MODO OSCURO
+========================================= */
+
+.btn-tema {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    border: none;
+    background: white;
+    color: var(--color-texto);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+.btn-tema:hover {
+    transform: scale(1.08);
+}
+
+
+/* COLORES DEL MODO OSCURO */
+
+body.modo-oscuro {
+    --color-fondo: #211d20;
+    --color-tarjeta: #302a2e;
+    --color-texto: #f5edf0;
+    --color-borde: #604854;
+    --color-rosado-suave: #3a2931;
+
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+body.modo-oscuro header {
+    background-color: #30242a;
+}
+
+body.modo-oscuro nav {
+    background-color: #181518;
+}
+
+body.modo-oscuro nav a {
+    color: #f8dce7;
+}
+
+body.modo-oscuro .producto-card,
+body.modo-oscuro .beneficio-card,
+body.modo-oscuro aside {
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+}
+
+body.modo-oscuro input {
+    background-color: #3a3337;
+    color: #ffffff;
+    border-color: var(--color-borde);
+}
+
+body.modo-oscuro .btn-categoria {
+    background-color: #302a2e;
+    color: #f5edf0;
+    border-color: var(--color-borde);
+}
+
+body.modo-oscuro .btn-categoria.activo {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+body.modo-oscuro .seccion-beneficios {
+    background-color: var(--color-rosado-suave);
+}
+
+body.modo-oscuro .btn-tema {
+    background-color: #3a3337;
+    color: #ffffff;
 }

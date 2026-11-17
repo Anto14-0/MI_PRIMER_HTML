@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 
 const mongoose = require("mongoose");
@@ -13,9 +12,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+console.log("¿MONGODB_URI está definida?:", Boolean(process.env.MONGODB_URI));
+console.log("¿Empieza con mongodb?:", process.env.MONGODB_URI?.startsWith("mongodb"));
+
 // ========================================
 // CONEXIÓN A MONGODB
 // ========================================
+
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {

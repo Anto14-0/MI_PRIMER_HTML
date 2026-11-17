@@ -1,3 +1,4 @@
+
 /* ========================================
    1. VARIABLES Y ESTILOS GENERALES
    ======================================== */
@@ -21,6 +22,9 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -28,6 +32,16 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     line-height: 1.6;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+input,
+textarea,
+button {
+    max-width: 100%;
 }
 
 
@@ -66,6 +80,7 @@ header p {
     position: absolute;
     top: 25px;
     right: 20px;
+    z-index: 110;
 }
 
 nav {
@@ -348,7 +363,7 @@ section > p {
 
 
 /* ========================================
-   ⭐ MÁS VENDIDO
+   MÁS VENDIDO
    ======================================== */
 
 .badge-mas-vendido {
@@ -480,14 +495,16 @@ aside h3 {
     text-align: center;
 }
 
+
 /* ========================================
    FORMULARIO DE CONSULTAS
    ======================================== */
 
 .formulario-consulta {
+    width: 100%;
     max-width: 600px;
     margin: 30px auto;
-    padding: 30px;
+    padding: 25px;
     background-color: var(--color-tarjeta);
     border: 1px solid var(--color-borde);
     border-radius: 20px;
@@ -500,6 +517,8 @@ aside h3 {
     flex-direction: column;
     gap: 8px;
     margin-bottom: 20px;
+    width: 100%;
+    min-width: 0;
 }
 
 .campo-formulario label {
@@ -510,14 +529,14 @@ aside h3 {
 .campo-formulario input,
 .campo-formulario textarea {
     width: 100%;
+    min-width: 0;
     padding: 13px 15px;
     border: 1px solid var(--color-borde);
     border-radius: 12px;
-    background-color: var(--bg-principal);
+    background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: var(--fuente-principal);
     font-size: 1rem;
-    box-sizing: border-box;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -525,7 +544,7 @@ aside h3 {
 .campo-formulario input:focus,
 .campo-formulario textarea:focus {
     border-color: var(--color-principal);
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.15);
 }
 
 .campo-formulario textarea {
@@ -551,15 +570,6 @@ aside h3 {
     background-color: var(--color-principal-hover);
     transform: translateY(-2px);
 }
-
-/* Adaptación para celulares */
-@media (max-width: 600px) {
-    .formulario-consulta {
-        margin: 20px 12px;
-        padding: 20px;
-    }
-}
-
 
 footer {
     background-color: var(--color-principal);
@@ -832,25 +842,53 @@ footer {
    15. RESPONSIVE
    ======================================== */
 
+@media (max-width: 900px) {
+    .beneficios-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 700px) {
 
     .menu-hamburguesa {
-        display: block;
+        display: block !important;
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        z-index: 110;
     }
 
-    #navTeje {
-        display: none;
+    .btn-tema {
+        right: 65px;
+        top: 20px;
+        width: 38px;
+        height: 38px;
+        z-index: 110;
+    }
+
+    /* Menú cerrado: siempre oculto en móvil */
+    nav#navTeje {
+        display: none !important;
+        position: static;
         flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
         width: 100%;
+        height: auto;
         gap: 8px;
-        padding: 10px 20px 15px;
+        padding: 10px 15px;
+        visibility: visible;
+        opacity: 1;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
-    #navTeje.esta-abierto {
-        display: flex;
+    /* Menú abierto: aparece al pulsar ☰ */
+    nav#navTeje.esta-abierto {
+        display: flex !important;
     }
 
-    #navTeje a {
+    nav#navTeje a {
+        display: block;
         text-align: center;
         width: 100%;
     }
@@ -870,16 +908,42 @@ footer {
     }
 
     section {
-        padding: 40px 10px;
+        padding: 30px 8px;
+    }
+
+    main {
+        padding: 0 12px;
+        width: 100%;
     }
 
     #productos {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #productos article {
+        min-width: 0;
+    }
+
+    .formulario-consulta {
+        width: 100%;
+        margin: 20px auto;
+        padding: 18px 15px;
+        border-radius: 15px;
+    }
+
+    .campo-formulario {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .campo-formulario input,
+    .campo-formulario textarea {
+        font-size: 16px;
     }
 
     .panel-carrito,
     .panel-favoritos {
-        width: 85%;
+        width: min(85%, 320px);
     }
 
     .badge-mas-vendido {
@@ -887,26 +951,45 @@ footer {
         padding: 4px 8px;
     }
 
-    #whatsappFlotante {
-        right: 15px;
-    }
-
-    #btnCarrito {
-        right: 15px;
-    }
-
-    #btnFavoritos {
-        right: 15px;
-    }
-
+    #whatsappFlotante,
+    #btnCarrito,
+    #btnFavoritos,
     #volverArriba {
         right: 15px;
     }
+
+    .beneficios-container {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-categorias {
+        padding: 15px 10px;
+    }
+
+    .btn-categoria {
+        font-size: 14px;
+        padding: 9px 14px;
+        max-width: 100%;
+    }
+
+    .seccion-beneficios {
+        margin: 40px 15px;
+        padding: 30px 15px;
+    }
+
+    .seccion-beneficios h2 {
+        font-size: 25px;
+    }
+
+    .categorias-container {
+        gap: 8px;
+    }
 }
 
-/* =========================================
-   CATEGORÍAS
-========================================= */
+
+/* ========================================
+   16. CATEGORÍAS
+   ======================================== */
 
 .seccion-categorias {
     text-align: center;
@@ -953,9 +1036,9 @@ footer {
 }
 
 
-/* =========================================
-   ¿POR QUÉ ELEGIR TEJEBONITO?
-========================================= */
+/* ========================================
+   17. ¿POR QUÉ ELEGIR TEJEBONITO?
+   ======================================== */
 
 .seccion-beneficios {
     max-width: 1100px;
@@ -1014,47 +1097,9 @@ footer {
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 900px) {
-
-    .beneficios-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .seccion-categorias {
-        padding: 15px 10px;
-    }
-
-    .btn-categoria {
-        font-size: 14px;
-        padding: 9px 14px;
-    }
-
-    .beneficios-container {
-        grid-template-columns: 1fr;
-    }
-
-    .seccion-beneficios {
-        margin: 40px 15px;
-        padding: 30px 15px;
-    }
-
-    .seccion-beneficios h2 {
-        font-size: 25px;
-    }
-
-}
-
-/* =========================================
-   MODO CLARO / MODO OSCURO
-========================================= */
+/* ========================================
+   18. MODO CLARO / MODO OSCURO
+   ======================================== */
 
 .btn-tema {
     position: absolute;
@@ -1109,7 +1154,8 @@ body.modo-oscuro aside {
     color: var(--color-texto);
 }
 
-body.modo-oscuro input {
+body.modo-oscuro input,
+body.modo-oscuro textarea {
     background-color: #3a3337;
     color: #ffffff;
     border-color: var(--color-borde);
@@ -1137,113 +1183,9 @@ body.modo-oscuro .btn-tema {
 
 
 /* ========================================
-   CORRECCIONES RESPONSIVE - TEJEBONITO
+   19. AJUSTES PARA CELULARES PEQUEÑOS
    ======================================== */
 
-/* Evitar desbordamientos horizontales */
-html,
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-img,
-input,
-textarea,
-button {
-    max-width: 100%;
-}
-
-/* Corregir formulario */
-.formulario-consulta {
-    width: 100%;
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 25px;
-}
-
-.campo-formulario input,
-.campo-formulario textarea {
-    width: 100%;
-    min-width: 0;
-    background-color: var(--color-fondo);
-}
-
-/* Ajustes para celulares */
-@media (max-width: 700px) {
-
-    main {
-        padding: 0 12px;
-        width: 100%;
-    }
-
-    section {
-        padding: 30px 8px;
-    }
-
-    .formulario-consulta {
-        width: 100%;
-        margin: 20px auto;
-        padding: 18px 15px;
-        border-radius: 15px;
-    }
-
-    .campo-formulario {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .campo-formulario input,
-    .campo-formulario textarea {
-        font-size: 16px;
-    }
-
-    /* Separar menú y botón de tema */
-    .menu-hamburguesa {
-        right: 15px;
-        top: 20px;
-        z-index: 110;
-    }
-
-    .btn-tema {
-        right: 65px;
-        top: 20px;
-        width: 38px;
-        height: 38px;
-    }
-
-    /* Beneficios */
-    .beneficios-container {
-        grid-template-columns: 1fr;
-    }
-
-    /* Evitar tarjetas demasiado anchas */
-    #productos {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    #productos article {
-        min-width: 0;
-    }
-
-    /* Paneles laterales */
-    .panel-carrito,
-    .panel-favoritos {
-        width: min(85%, 320px);
-    }
-
-    /* Evitar desbordamientos en botones */
-    .categorias-container {
-        gap: 8px;
-    }
-
-    .btn-categoria {
-        max-width: 100%;
-    }
-}
-
-/* Celulares muy pequeños */
 @media (max-width: 380px) {
 
     header h1 {

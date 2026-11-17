@@ -1204,3 +1204,96 @@ body.modo-oscuro .btn-tema {
         font-size: 1.6rem;
     }
 }
+
+/* ========================================
+   FORMULARIO DE CONTACTO - TEJEBONITO
+   ======================================== */
+
+#contacto {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--color-fondo);
+}
+
+#contacto h2 {
+    color: var(--color-principal);
+    margin-bottom: 12px;
+}
+
+#contacto > p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+}
+
+#formularioConsulta {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+#formularioConsulta label {
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+#formularioConsulta input,
+#formularioConsulta textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font: inherit;
+    box-sizing: border-box;
+}
+
+#formularioConsulta textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#formularioConsulta input:focus,
+#formularioConsulta textarea:focus {
+    outline: 2px solid var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+#btnEnviarConsulta {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: var(--color-principal);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#btnEnviarConsulta:hover {
+    background: var(--color-principal-hover);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    #contacto {
+        padding: 40px 15px;
+    }
+
+    #formularioConsulta {
+        padding: 22px 18px;
+    }
+}

@@ -479,190 +479,77 @@
             </p>
 
         </section>
+                <div class="asistente-contenedor">
 
+                    <!-- PASO 1 -->
+                    <div class="paso-asistente activo" id="paso1">
 
-        <!-- ASISTENTE DE ESTILO Y REGALOS -->
-        <section id="asistente-estilo">
+                        <h3>1. ¿Para quién es este detalle?</h3>
 
-            <h2>
-                ¿No sabes qué elegir o qué colores combinar? 🧶✨
-            </h2>
+                        <div class="opciones-asistente">
 
-            <p>
-                Responde estas breves preguntas y te ayudaremos
-                a armar el pedido ideal con la paleta de colores perfecta.
-            </p>
+                            <button onclick="seleccionarOpcion('destino', 'Un regalo especial', 2)">
+                                🎁 Es un regalo
+                            </button>
 
+                            <button onclick="seleccionarOpcion('destino', 'Un antojo personal', 2)">
+                                ✨ Es un autorregalo
+                            </button>
 
-            <div class="asistente-contenedor">
-
-                <!-- PASO 1 -->
-                <div
-                    class="paso-asistente activo"
-                    id="paso1">
-
-                    <h3>
-                        1. ¿Para quién es este detalle?
-                    </h3>
-
-                    <div class="opciones-asistente">
-
-                        <button
-                            onclick="seleccionarOpcion('destino', 'Un regalo especial', 2)">
-                            🎁 Es un regalo
-                        </button>
-
-                        <button
-                            onclick="seleccionarOpcion('destino', 'Un antojo personal', 2)">
-                            ✨ Es un autorregalo
-                        </button>
-
+                        </div>
                     </div>
 
-                </div>
+                    <!-- PASO 2 -->
+                    <div class="paso-asistente" id="paso2">
 
+                        <h3>2. ¿Cuál es la vibra o estilo de colores que prefieres?</h3>
 
-                <!-- PASO 2 -->
-                <div
-                    class="paso-asistente"
-                    id="paso2">
+                        <div class="opciones-asistente">
 
-                    <h3>
-                        2. ¿Cuál es la vibra o estilo de colores que prefieres?
-                    </h3>
+                            <button onclick="seleccionarOpcion('paleta', 'Rosa pastel + Crema', 3)">
+                                🌸 Pastel / Aesthetic (Rosa + Crema)
+                            </button>
 
-                    <div class="opciones-asistente">
+                            <button onclick="seleccionarOpcion('paleta', 'Beige + Terracota + Marrón', 3)">
+                                🍂 Tonos Tierra (Beige + Terracota)
+                            </button>
 
-                        <button
-                            onclick="seleccionarOpcion('paleta', 'Rosa pastel + Crema', 3)">
-                            🌸 Pastel / Aesthetic (Rosa + Crema)
-                        </button>
+                            <button onclick="seleccionarOpcion('paleta', 'Amarillo girasol + Verde menta', 3)">
+                                🌻 Cálido & Alegre (Amarillo + Menta)
+                            </button>
 
-                        <button
-                            onclick="seleccionarOpcion('paleta', 'Beige + Terracota + Marrón', 3)">
-                            🍂 Tonos Tierra (Beige + Terracota)
-                        </button>
+                            <button onclick="seleccionarOpcion('paleta', 'Lila + Azul cielo', 3)">
+                                💜 Vibrante (Lila + Azul cielo)
+                            </button>
 
-                        <button
-                            onclick="seleccionarOpcion('paleta', 'Amarillo girasol + Verde menta', 3)">
-                            🌻 Cálido & Alegre (Amarillo + Menta)
-                        </button>
-
-                        <button
-                            onclick="seleccionarOpcion('paleta', 'Lila + Azul cielo', 3)">
-                            💜 Vibrante (Lila + Azul cielo)
-                        </button>
-
+                        </div>
                     </div>
 
-                </div>
+                    <!-- PASO 3 -->
+                    <div class="paso-asistente" id="paso3">
 
+                        <h3>3. ¿Qué tipo de uso le darás?</h3>
 
-                <!-- PASO 3 -->
-                <div
-                    class="paso-asistente"
-                    id="paso3">
+                        <div class="opciones-asistente">
 
-                    <h3>
-                        3. ¿Qué tipo de uso le darás?
-                    </h3>
+                            <button onclick="finalizarAsistente('Scrunchie', 8000)">
+                                💇‍♀️ Para el cabello / Look diario
+                            </button>
 
-                    <div class="opciones-asistente">
+                            <button onclick="finalizarAsistente('Marcapáginas', 10000)">
+                                📚 Para acompañar lecturas
+                            </button>
 
-                        <button
-                            onclick="finalizarAsistente('Scrunchie', 8000)">
-                            💇‍♀️ Para el cabello / Look diario
-                        </button>
+                            <button onclick="finalizarAsistente('Posavasos', 12000)">
+                                ☕ Para decorar la mesa / escritorio
+                            </button>
 
-                        <button
-                            onclick="finalizarAsistente('Marcapáginas', 10000)">
-                            📚 Para acompañar lecturas
-                        </button>
+                            <button onclick="finalizarAsistente('Cintillo', 18000)">
+                                👑 Un accesorio llamativo y moderno
+                            </button>
 
-                        <button
-                            onclick="finalizarAsistente('Posavasos', 12000)">
-                            ☕ Para decorar la mesa / escritorio
-                        </button>
-
-                        <button
-                            onclick="finalizarAsistente('Cintillo', 18000)">
-                            👑 Un accesorio llamativo y moderno
-                        </button>
-
+                        </div>
                     </div>
-
-                </div>
-
-
-        <!-- CONTACTO Y FORMULARIO DE CONSULTAS -->
-        <section id="contacto">
-
-            <h2>💌 Contáctanos</h2>
-
-            <p>
-                ¿Tienes una idea, quieres personalizar un producto
-                o necesitas más información? ¡Escríbenos!
-            </p>
-
-            <form id="formularioConsulta">
-
-                <label for="nombreConsulta">
-                    Tu nombre
-                </label>
-                <input
-                    type="text"
-                    id="nombreConsulta"
-                    name="nombre"
-                    placeholder="Escribe tu nombre"
-                    required
-                >
-
-                <label for="correoConsulta">
-                    Tu correo electrónico
-                </label>
-                <input
-                    type="email"
-                    id="correoConsulta"
-                    name="correo"
-                    placeholder="ejemplo@correo.com"
-                    required
-                >
-
-                <label for="productoConsulta">
-                    ¿Qué producto te interesa?
-                </label>
-                <input
-                    type="text"
-                    id="productoConsulta"
-                    name="producto"
-                    placeholder="Ej: Scrunchie, cintillo..."
-                    required
-                >
-
-                <label for="mensajeConsulta">
-                    Tu mensaje
-                </label>
-                <textarea
-                    id="mensajeConsulta"
-                    name="mensaje"
-                    placeholder="Cuéntanos qué tienes en mente..."
-                    rows="5"
-                    required
-                ></textarea>
-
-                <button
-                    type="submit"
-                    id="btnEnviarConsulta">
-                    Enviar consulta 💌
-                </button>
-
-            </form>
-
-        </section>
-
-    </main>
-
-
                 <!-- RESULTADO -->
                 <div
                     class="paso-asistente"
@@ -698,7 +585,42 @@
         </section>
 
 
+<!-- CONTACTO Y FORMULARIO DE CONSULTAS -->
+<section id="contacto">
 
+    <h2>💌 Contáctanos</h2>
+
+    <p>
+        ¿Tienes una idea, quieres personalizar un producto
+        o necesitas más información? ¡Escríbenos!
+    </p>
+
+    <form id="formularioConsulta">
+
+        <label for="nombreConsulta">Tu nombre</label>
+        <input type="text" id="nombreConsulta" name="nombre"
+            placeholder="Escribe tu nombre" required>
+
+        <label for="correoConsulta">Tu correo electrónico</label>
+        <input type="email" id="correoConsulta" name="correo"
+            placeholder="ejemplo@correo.com" required>
+
+        <label for="productoConsulta">¿Qué producto te interesa?</label>
+        <input type="text" id="productoConsulta" name="producto"
+            placeholder="Ej: Scrunchie, cintillo..." required>
+
+        <label for="mensajeConsulta">Tu mensaje</label>
+        <textarea id="mensajeConsulta" name="mensaje"
+            placeholder="Cuéntanos qué tienes en mente..."
+            rows="5" required></textarea>
+
+        <button type="submit" id="btnEnviarConsulta">
+            Enviar consulta 💌
+        </button>
+
+    </form>
+
+</section>
 
 
     <!-- PIE DE PÁGINA -->

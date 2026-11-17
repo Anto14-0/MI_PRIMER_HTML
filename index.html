@@ -629,26 +629,70 @@
         </section>
 
 
-        <!-- CONTACTO -->
-        <section id="contacto">
+<!-- CONTACTO Y FORMULARIO DE CONSULTAS -->
+<section id="contacto">
 
-            <h2>¿Hablamos? ✉️</h2>
+    <h2>¿Tienes alguna duda? 💌</h2>
 
-            <p>
-                ¿Te gusta alguna de nuestras creaciones?
-                Escríbenos para conocer más sobre nuestros productos,
-                consultar disponibilidad o realizar un pedido.
-            </p>
+    <p>
+        En TEJEBONITO queremos ayudarte.
+        Cuéntanos qué necesitas y nos pondremos en contacto contigo.
+    </p>
 
-            <a
-                href="https://wa.me/57TU_NUMERO"
-                target="_blank">
-                Contáctame
-            </a>
+    <form id="formularioConsulta" class="formulario-consulta">
 
-        </section>
+        <div class="campo-formulario">
+            <label for="nombreConsulta">Tu nombre</label>
+            <input
+                type="text"
+                id="nombreConsulta"
+                name="nombre"
+                placeholder="Escribe tu nombre"
+                required
+                maxlength="60">
+        </div>
 
-    </main>
+        <div class="campo-formulario">
+            <label for="correoConsulta">Tu correo electrónico</label>
+            <input
+                type="email"
+                id="correoConsulta"
+                name="correo"
+                placeholder="ejemplo@correo.com"
+                required
+                maxlength="100">
+        </div>
+
+        <div class="campo-formulario">
+            <label for="temaConsulta">¿Sobre qué producto tienes dudas?</label>
+            <input
+                type="text"
+                id="temaConsulta"
+                name="producto"
+                placeholder="Ejemplo: Posavasos, scrunchies..."
+                maxlength="100">
+        </div>
+
+        <div class="campo-formulario">
+            <label for="mensajeConsulta">Tu mensaje</label>
+            <textarea
+                id="mensajeConsulta"
+                name="mensaje"
+                rows="5"
+                placeholder="Escribe aquí tu consulta..."
+                required
+                maxlength="1000"></textarea>
+        </div>
+
+        <button type="submit" id="btnEnviarConsulta">
+            Enviar consulta 💌
+        </button>
+
+    </form>
+
+</section>
+
+
 
 
     <!-- PIE DE PÁGINA -->

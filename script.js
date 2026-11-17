@@ -1,3 +1,4 @@
+
 // ========================================
 // TEJEBONITO 🧶
 // LÓGICA PRINCIPAL DE LA PÁGINA
@@ -8,11 +9,11 @@
 // 1. CONFIGURACIÓN
 // ========================================
 
-// ⚠️ CAMBIA SOLO ESTA PARTE POR TU NÚMERO
-// Ejemplo: 573001234567
-// No uses +, espacios ni guiones.
-
+// Cambiar cuando tengas el número de WhatsApp del emprendimiento.
 const NUMERO_WHATSAPP = '57TU_NUMERO';
+
+// Dirección del backend.
+const URL_BACKEND = 'http://localhost:3000';
 
 
 // ========================================
@@ -142,7 +143,6 @@ function mostrarToast(mensaje, icono = '✨') {
         }
 
         toastNotification.classList.add('mostrar');
-
         toastNotification.style.opacity = '1';
 
         setTimeout(() => {
@@ -150,9 +150,7 @@ function mostrarToast(mensaje, icono = '✨') {
             toastNotification.style.opacity = '0';
 
             setTimeout(() => {
-
                 toastNotification.classList.remove('mostrar');
-
             }, 300);
 
         }, 3000);
@@ -183,9 +181,7 @@ if (botonMenuTeje && navTeje) {
 
         botonMenuTeje.setAttribute(
             'aria-label',
-            estaAbierto
-                ? 'Cerrar menú'
-                : 'Abrir menú'
+            estaAbierto ? 'Cerrar menú' : 'Abrir menú'
         );
 
         botonMenuTeje.textContent =
@@ -193,8 +189,6 @@ if (botonMenuTeje && navTeje) {
 
     });
 
-
-    // Cerrar menú al seleccionar una sección
     navTeje.querySelectorAll('a').forEach((enlace) => {
 
         enlace.addEventListener('click', () => {
@@ -241,7 +235,6 @@ document
                     boton.getAttribute('data-precio')
                 ) || 0;
 
-
             const detalleInput =
                 tarjeta?.querySelector(
                     '.input-tamano, .input-color'
@@ -252,21 +245,15 @@ document
                     ? detalleInput.value.trim()
                     : '';
 
-
             const inputCantidad =
-                tarjeta?.querySelector(
-                    '.input-cantidad'
-                );
+                tarjeta?.querySelector('.input-cantidad');
 
             let cantidadVal =
                 parseInt(inputCantidad?.value) || 1;
 
-
-            // Evitar cantidades menores a 1
             if (cantidadVal < 1) {
                 cantidadVal = 1;
             }
-
 
             carrito.push({
                 nombre: nombreProducto,
@@ -275,7 +262,6 @@ document
                 cantidad: cantidadVal
             });
 
-
             actualizarCarrito();
 
             mostrarToast(
@@ -283,8 +269,6 @@ document
                 '🛍️'
             );
 
-
-            // Limpiar campos después de agregar
             if (detalleInput) {
                 detalleInput.value = '';
             }
@@ -309,8 +293,6 @@ function actualizarCarrito() {
         JSON.stringify(carrito)
     );
 
-
-    // Contador
     if (contadorCarrito) {
 
         contadorCarrito.textContent =
@@ -322,19 +304,11 @@ function actualizarCarrito() {
 
     }
 
-
-    // Limpiar lista
     if (listaCarrito) {
         listaCarrito.innerHTML = '';
     }
 
-
     let totalAcumulado = 0;
-
-
-    // ========================================
-    // CARRITO VACÍO
-    // ========================================
 
     if (carrito.length === 0) {
 
@@ -342,19 +316,11 @@ function actualizarCarrito() {
             carritoVacioMsg.style.display = 'block';
         }
 
-    }
-
-
-    // ========================================
-    // CARRITO CON PRODUCTOS
-    // ========================================
-
-    else {
+    } else {
 
         if (carritoVacioMsg) {
             carritoVacioMsg.style.display = 'none';
         }
-
 
         carrito.forEach((item, index) => {
 
@@ -363,12 +329,10 @@ function actualizarCarrito() {
 
             totalAcumulado += subtotal;
 
-
             if (listaCarrito) {
 
                 const li =
                     document.createElement('li');
-
 
                 li.style.display = 'flex';
                 li.style.justifyContent = 'space-between';
@@ -377,10 +341,8 @@ function actualizarCarrito() {
                 li.style.paddingBottom = '5px';
                 li.style.borderBottom = '1px solid #ffdeeb';
 
-
                 const contenido =
                     document.createElement('div');
-
 
                 const titulo =
                     document.createElement('strong');
@@ -388,15 +350,12 @@ function actualizarCarrito() {
                 titulo.textContent =
                     `${item.cantidad}x ${item.nombre} - $${subtotal.toLocaleString('es-CO')}`;
 
-
                 const detalle =
                     document.createElement('small');
 
                 detalle.style.color = '#888';
-
                 detalle.textContent =
                     `Detalle: ${item.detalle}`;
-
 
                 contenido.appendChild(titulo);
                 contenido.appendChild(
@@ -404,12 +363,10 @@ function actualizarCarrito() {
                 );
                 contenido.appendChild(detalle);
 
-
                 const botonEliminar =
                     document.createElement('button');
 
                 botonEliminar.textContent = '❌';
-
                 botonEliminar.title = 'Eliminar';
 
                 botonEliminar.setAttribute(
@@ -423,12 +380,10 @@ function actualizarCarrito() {
                 botonEliminar.style.cursor = 'pointer';
                 botonEliminar.style.fontSize = '1.1rem';
 
-
                 botonEliminar.addEventListener(
                     'click',
                     () => eliminarDelCarrito(index)
                 );
-
 
                 li.appendChild(contenido);
                 li.appendChild(botonEliminar);
@@ -441,11 +396,6 @@ function actualizarCarrito() {
 
     }
 
-
-    // ========================================
-    // TOTAL
-    // ========================================
-
     const totalElemento =
         document.getElementById('totalCarrito');
 
@@ -456,11 +406,6 @@ function actualizarCarrito() {
 
     }
 
-
-    // ========================================
-    // MENSAJE PARA WHATSAPP
-    // ========================================
-
     const lineas =
         carrito.map((item) => {
 
@@ -470,11 +415,9 @@ function actualizarCarrito() {
 
         });
 
-
     let mensaje =
         'Hola TEJEBONITO 🧶, quiero hacer el siguiente pedido:\n\n' +
         lineas.join('\n');
-
 
     if (totalAcumulado > 0) {
 
@@ -482,7 +425,6 @@ function actualizarCarrito() {
             `\n\n*Total estimado: $${totalAcumulado.toLocaleString('es-CO')} COP*`;
 
     }
-
 
     if (btnEnviarPedido) {
 
@@ -505,11 +447,9 @@ window.eliminarDelCarrito =
         const itemEliminado =
             carrito[posicion];
 
-
         carrito.splice(posicion, 1);
 
         actualizarCarrito();
-
 
         if (itemEliminado) {
 
@@ -529,40 +469,32 @@ window.eliminarDelCarrito =
 
 if (btnVaciarCarrito) {
 
-    btnVaciarCarrito.addEventListener(
-        'click',
-        () => {
+    btnVaciarCarrito.addEventListener('click', () => {
 
-            if (carrito.length === 0) {
+        if (carrito.length === 0) {
 
-                mostrarToast(
-                    'El carrito ya está vacío',
-                    'ℹ️'
-                );
+            mostrarToast(
+                'El carrito ya está vacío',
+                'ℹ️'
+            );
 
-                return;
-            }
+            return;
+        }
 
+        if (confirm('¿Estás segura de que deseas vaciar tu carrito?')) {
 
-            if (
-                confirm(
-                    '¿Estás segura de que deseas vaciar tu carrito?'
-                )
-            ) {
+            carrito = [];
 
-                carrito = [];
+            actualizarCarrito();
 
-                actualizarCarrito();
-
-                mostrarToast(
-                    'Carrito vaciado con éxito',
-                    '🗑️'
-                );
-
-            }
+            mostrarToast(
+                'Carrito vaciado con éxito',
+                '🗑️'
+            );
 
         }
-    );
+
+    });
 
 }
 
@@ -573,32 +505,21 @@ if (btnVaciarCarrito) {
 
 if (btnCarrito && panelCarrito) {
 
-    btnCarrito.addEventListener(
-        'click',
-        () => {
+    btnCarrito.addEventListener('click', () => {
 
-            const estaAbierto =
-                panelCarrito.classList.contains(
-                    'esta-abierto'
-                );
+        const estaAbierto =
+            panelCarrito.classList.contains('esta-abierto');
 
+        panelCarrito.classList.toggle(
+            'esta-abierto',
+            !estaAbierto
+        );
 
-            panelCarrito.classList.toggle(
-                'esta-abierto',
-                !estaAbierto
-            );
-
-
-            if (panelFavoritos) {
-
-                panelFavoritos.classList.remove(
-                    'esta-abierto'
-                );
-
-            }
-
+        if (panelFavoritos) {
+            panelFavoritos.classList.remove('esta-abierto');
         }
-    );
+
+    });
 
 }
 
@@ -609,32 +530,21 @@ if (btnCarrito && panelCarrito) {
 
 if (btnFavoritos && panelFavoritos) {
 
-    btnFavoritos.addEventListener(
-        'click',
-        () => {
+    btnFavoritos.addEventListener('click', () => {
 
-            const estaAbierto =
-                panelFavoritos.classList.contains(
-                    'esta-abierto'
-                );
+        const estaAbierto =
+            panelFavoritos.classList.contains('esta-abierto');
 
+        panelFavoritos.classList.toggle(
+            'esta-abierto',
+            !estaAbierto
+        );
 
-            panelFavoritos.classList.toggle(
-                'esta-abierto',
-                !estaAbierto
-            );
-
-
-            if (panelCarrito) {
-
-                panelCarrito.classList.remove(
-                    'esta-abierto'
-                );
-
-            }
-
+        if (panelCarrito) {
+            panelCarrito.classList.remove('esta-abierto');
         }
-    );
+
+    });
 
 }
 
@@ -647,26 +557,19 @@ document
     .querySelectorAll('.panel-close')
     .forEach((botonCerrar) => {
 
-        botonCerrar.addEventListener(
-            'click',
-            () => {
+        botonCerrar.addEventListener('click', () => {
 
-                const panelId =
-                    botonCerrar.dataset.panel;
+            const panelId =
+                botonCerrar.dataset.panel;
 
-                const panel =
-                    document.getElementById(panelId);
+            const panel =
+                document.getElementById(panelId);
 
-                if (panel) {
-
-                    panel.classList.remove(
-                        'esta-abierto'
-                    );
-
-                }
-
+            if (panel) {
+                panel.classList.remove('esta-abierto');
             }
-        );
+
+        });
 
     });
 
@@ -675,47 +578,37 @@ document
 // 17. CERRAR PANELES AL HACER CLIC AFUERA
 // ========================================
 
-document.addEventListener(
-    'click',
-    (evento) => {
+document.addEventListener('click', (evento) => {
 
-        const panelAbierto =
-            document.querySelector(
-                '.panel-carrito.esta-abierto, .panel-favoritos.esta-abierto'
-            );
+    const panelAbierto =
+        document.querySelector(
+            '.panel-carrito.esta-abierto, .panel-favoritos.esta-abierto'
+        );
 
+    if (!panelAbierto) {
+        return;
+    }
 
-        if (!panelAbierto) {
-            return;
-        }
+    const clickDentroPanel =
+        panelAbierto.contains(evento.target);
 
+    const clickBotonCarrito =
+        btnCarrito && btnCarrito.contains(evento.target);
 
-        const clickDentroPanel =
-            panelAbierto.contains(evento.target);
+    const clickBotonFavoritos =
+        btnFavoritos && btnFavoritos.contains(evento.target);
 
-        const clickBotonCarrito =
-            btnCarrito &&
-            btnCarrito.contains(evento.target);
+    if (
+        !clickDentroPanel &&
+        !clickBotonCarrito &&
+        !clickBotonFavoritos
+    ) {
 
-        const clickBotonFavoritos =
-            btnFavoritos &&
-            btnFavoritos.contains(evento.target);
-
-
-        if (
-            !clickDentroPanel &&
-            !clickBotonCarrito &&
-            !clickBotonFavoritos
-        ) {
-
-            panelAbierto.classList.remove(
-                'esta-abierto'
-            );
-
-        }
+        panelAbierto.classList.remove('esta-abierto');
 
     }
-);
+
+});
 
 
 // ========================================
@@ -724,47 +617,39 @@ document.addEventListener(
 
 botonesFavorito.forEach((boton) => {
 
-    boton.addEventListener(
-        'click',
-        (evento) => {
+    boton.addEventListener('click', (evento) => {
 
-            evento.stopPropagation();
+        evento.stopPropagation();
 
+        const nombreProducto =
+            boton.getAttribute('data-nombre');
 
-            const nombreProducto =
-                boton.getAttribute('data-nombre');
+        const posicion =
+            favoritos.indexOf(nombreProducto);
 
-            const posicion =
-                favoritos.indexOf(nombreProducto);
+        if (posicion !== -1) {
 
+            favoritos.splice(posicion, 1);
 
-            if (posicion !== -1) {
+            mostrarToast(
+                `Eliminado de favoritos: ${nombreProducto}`,
+                '🤍'
+            );
 
-                favoritos.splice(posicion, 1);
+        } else {
 
-                mostrarToast(
-                    `Eliminado de favoritos: ${nombreProducto}`,
-                    '🤍'
-                );
+            favoritos.push(nombreProducto);
 
-            }
-
-            else {
-
-                favoritos.push(nombreProducto);
-
-                mostrarToast(
-                    `¡${nombreProducto} agregado a favoritos!`,
-                    '💖'
-                );
-
-            }
-
-
-            actualizarFavoritos();
+            mostrarToast(
+                `¡${nombreProducto} agregado a favoritos!`,
+                '💖'
+            );
 
         }
-    );
+
+        actualizarFavoritos();
+
+    });
 
 });
 
@@ -780,70 +665,46 @@ function actualizarFavoritos() {
         JSON.stringify(favoritos)
     );
 
-
     if (contadorFavoritos) {
-
-        contadorFavoritos.textContent =
-            favoritos.length;
-
+        contadorFavoritos.textContent = favoritos.length;
     }
-
 
     botonesFavorito.forEach((boton) => {
 
         const nombreProducto =
             boton.getAttribute('data-nombre');
 
-
         if (favoritos.includes(nombreProducto)) {
 
             boton.classList.add('es-favorito');
-
             boton.textContent = '❤️';
 
-        }
+        } else {
 
-        else {
-
-            boton.classList.remove(
-                'es-favorito'
-            );
-
+            boton.classList.remove('es-favorito');
             boton.textContent = '🤍';
 
         }
 
     });
 
-
     if (!listaFavoritos) {
         return;
     }
 
-
     listaFavoritos.innerHTML = '';
-
 
     if (favoritos.length === 0) {
 
         if (favoritosVacioMsg) {
-
-            favoritosVacioMsg.style.display =
-                'block';
-
+            favoritosVacioMsg.style.display = 'block';
         }
 
-    }
-
-    else {
+    } else {
 
         if (favoritosVacioMsg) {
-
-            favoritosVacioMsg.style.display =
-                'none';
-
+            favoritosVacioMsg.style.display = 'none';
         }
-
 
         favoritos.forEach((nombre) => {
 
@@ -851,14 +712,11 @@ function actualizarFavoritos() {
                 document.createElement('li');
 
             li.style.display = 'flex';
-            li.style.justifyContent =
-                'space-between';
+            li.style.justifyContent = 'space-between';
             li.style.padding = '6px 0';
-            li.style.borderBottom =
-                '1px dashed #ffdeeb';
+            li.style.borderBottom = '1px dashed #ffdeeb';
 
-            li.textContent =
-                `🧶 ${nombre}`;
+            li.textContent = `🧶 ${nombre}`;
 
             listaFavoritos.appendChild(li);
 
@@ -874,12 +732,10 @@ function actualizarFavoritos() {
 // ========================================
 
 let datosAsistente = {
-
     destino: '',
     paleta: '',
     producto: '',
     precio: 0
-
 };
 
 
@@ -888,28 +744,17 @@ window.seleccionarOpcion =
 
         datosAsistente[clave] = valor;
 
-
         document
             .querySelectorAll('.paso-asistente')
             .forEach((paso) => {
-
                 paso.classList.remove('activo');
-
             });
 
-
         const pasoSiguiente =
-            document.getElementById(
-                `paso${siguientePaso}`
-            );
-
+            document.getElementById(`paso${siguientePaso}`);
 
         if (pasoSiguiente) {
-
-            pasoSiguiente.classList.add(
-                'activo'
-            );
-
+            pasoSiguiente.classList.add('activo');
         }
 
     };
@@ -918,27 +763,17 @@ window.seleccionarOpcion =
 window.finalizarAsistente =
     function(nombreProducto, precioProducto) {
 
-        datosAsistente.producto =
-            nombreProducto;
-
-        datosAsistente.precio =
-            precioProducto;
-
+        datosAsistente.producto = nombreProducto;
+        datosAsistente.precio = precioProducto;
 
         document
             .querySelectorAll('.paso-asistente')
             .forEach((paso) => {
-
                 paso.classList.remove('activo');
-
             });
 
-
         const resumen =
-            document.getElementById(
-                'resumenRecomendacion'
-            );
-
+            document.getElementById('resumenRecomendacion');
 
         if (resumen) {
 
@@ -952,19 +787,11 @@ window.finalizarAsistente =
 
         }
 
-
         const pasoResultado =
-            document.getElementById(
-                'pasoResultado'
-            );
-
+            document.getElementById('pasoResultado');
 
         if (pasoResultado) {
-
-            pasoResultado.classList.add(
-                'activo'
-            );
-
+            pasoResultado.classList.add('activo');
         }
 
     };
@@ -980,24 +807,17 @@ window.reiniciarAsistente =
             precio: 0
         };
 
-
         document
             .querySelectorAll('.paso-asistente')
             .forEach((paso) => {
-
                 paso.classList.remove('activo');
-
             });
-
 
         const paso1 =
             document.getElementById('paso1');
 
-
         if (paso1) {
-
             paso1.classList.add('activo');
-
         }
 
     };
@@ -1008,46 +828,29 @@ window.reiniciarAsistente =
 // ========================================
 
 const btnAgregarAsistente =
-    document.getElementById(
-        'btnAgregarAsistente'
-    );
-
+    document.getElementById('btnAgregarAsistente');
 
 if (btnAgregarAsistente) {
 
-    btnAgregarAsistente.addEventListener(
-        'click',
-        () => {
+    btnAgregarAsistente.addEventListener('click', () => {
 
-            carrito.push({
+        carrito.push({
+            nombre: datosAsistente.producto,
+            precio: datosAsistente.precio,
+            detalle: `Paleta recomendada: ${datosAsistente.paleta}`,
+            cantidad: 1
+        });
 
-                nombre:
-                    datosAsistente.producto,
+        actualizarCarrito();
 
-                precio:
-                    datosAsistente.precio,
+        mostrarToast(
+            `¡${datosAsistente.producto} personalizado agregado!`,
+            '✨'
+        );
 
-                detalle:
-                    `Paleta recomendada: ${datosAsistente.paleta}`,
+        reiniciarAsistente();
 
-                cantidad: 1
-
-            });
-
-
-            actualizarCarrito();
-
-
-            mostrarToast(
-                `¡${datosAsistente.producto} personalizado agregado!`,
-                '✨'
-            );
-
-
-            reiniciarAsistente();
-
-        }
-    );
+    });
 
 }
 
@@ -1061,41 +864,27 @@ const productosPopulares = [
     'Posavasos'
 ];
 
-
 document
     .querySelectorAll('#productos article')
     .forEach((tarjeta) => {
 
         const botonAgregar =
-            tarjeta.querySelector(
-                '.btn-agregar-pedido'
-            );
-
+            tarjeta.querySelector('.btn-agregar-pedido');
 
         if (!botonAgregar) {
             return;
         }
 
-
         const nombre =
-            botonAgregar.getAttribute(
-                'data-nombre'
-            );
+            botonAgregar.getAttribute('data-nombre');
 
-
-        if (
-            productosPopulares.includes(nombre)
-        ) {
+        if (productosPopulares.includes(nombre)) {
 
             const badge =
                 document.createElement('span');
 
-            badge.className =
-                'badge-mas-vendido';
-
-            badge.textContent =
-                '⭐ Más Vendido';
-
+            badge.className = 'badge-mas-vendido';
+            badge.textContent = '⭐ Más Vendido';
 
             tarjeta.appendChild(badge);
 
@@ -1109,46 +898,28 @@ document
 // ========================================
 
 const volverArriba =
-    document.getElementById(
-        'volverArriba'
-    );
-
+    document.getElementById('volverArriba');
 
 if (volverArriba) {
 
-    window.addEventListener(
-        'scroll',
-        () => {
+    window.addEventListener('scroll', () => {
 
-            if (window.scrollY > 300) {
-
-                volverArriba.style.display =
-                    'block';
-
-            }
-
-            else {
-
-                volverArriba.style.display =
-                    'none';
-
-            }
-
+        if (window.scrollY > 300) {
+            volverArriba.style.display = 'block';
+        } else {
+            volverArriba.style.display = 'none';
         }
-    );
 
+    });
 
-    volverArriba.addEventListener(
-        'click',
-        () => {
+    volverArriba.addEventListener('click', () => {
 
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
 
-        }
-    );
+    });
 
 }
 
@@ -1158,19 +929,13 @@ if (volverArriba) {
 // ========================================
 
 const lightbox =
-    document.getElementById(
-        'lightbox'
-    );
+    document.getElementById('lightbox');
 
 const lightboxImagen =
-    document.getElementById(
-        'lightboxImagen'
-    );
+    document.getElementById('lightboxImagen');
 
 const cerrarLightbox =
-    document.getElementById(
-        'cerrarLightbox'
-    );
+    document.getElementById('cerrarLightbox');
 
 
 document
@@ -1179,104 +944,86 @@ document
 
         imagen.style.cursor = 'zoom-in';
 
+        imagen.addEventListener('click', () => {
 
-        imagen.addEventListener(
-            'click',
-            () => {
+            if (lightbox && lightboxImagen) {
 
-                if (
-                    lightbox &&
-                    lightboxImagen
-                ) {
+                lightboxImagen.src = imagen.src;
+                lightboxImagen.alt = imagen.alt;
 
-                    lightboxImagen.src =
-                        imagen.src;
-
-                    lightboxImagen.alt =
-                        imagen.alt;
-
-
-                    lightbox.classList.add(
-                        'esta-abierto'
-                    );
-
-                }
+                lightbox.classList.add('esta-abierto');
 
             }
-        );
+
+        });
 
     });
 
 
 if (cerrarLightbox) {
 
-    cerrarLightbox.addEventListener(
-        'click',
-        () => {
+    cerrarLightbox.addEventListener('click', () => {
 
-            if (lightbox) {
-
-                lightbox.classList.remove(
-                    'esta-abierto'
-                );
-
-            }
-
+        if (lightbox) {
+            lightbox.classList.remove('esta-abierto');
         }
-    );
+
+    });
 
 }
 
 
 if (lightbox) {
 
-    lightbox.addEventListener(
-        'click',
-        (evento) => {
+    lightbox.addEventListener('click', (evento) => {
 
-            if (
-                evento.target === lightbox
-            ) {
-
-                lightbox.classList.remove(
-                    'esta-abierto'
-                );
-
-            }
-
+        if (evento.target === lightbox) {
+            lightbox.classList.remove('esta-abierto');
         }
-    );
+
+    });
 
 }
 
 
+// ========================================
+// 25. BUSCADOR Y FILTROS DE PRODUCTOS
+// ========================================
 
-/* =========================================
-   25. BUSCADOR Y FILTROS DE PRODUCTOS
-========================================= */
+const inputBuscador =
+    document.getElementById('inputBuscador');
 
-const inputBuscador = document.getElementById('inputBuscador');
-const botonesCategoria = document.querySelectorAll('.btn-categoria');
-const productosCategoria = document.querySelectorAll('#productos .producto-card');
+const botonesCategoria =
+    document.querySelectorAll('.btn-categoria');
+
+const productosCategoria =
+    document.querySelectorAll('#productos .producto-card');
 
 let categoriaSeleccionada = 'todos';
 
+
 function filtrarProductos() {
+
     const texto = inputBuscador
         ? inputBuscador.value.toLowerCase().trim()
         : '';
 
-    productosCategoria.forEach(producto => {
-        const nombre = producto.querySelector('h3')
-            ?.textContent.toLowerCase() || '';
+    productosCategoria.forEach((producto) => {
 
-        const descripcion = producto.querySelector('p')
-            ?.textContent.toLowerCase() || '';
+        const nombre =
+            producto.querySelector('h3')
+                ?.textContent.toLowerCase() || '';
 
-        const personalizacion = producto.querySelector('.personalizacion')
-            ?.textContent.toLowerCase() || '';
+        const descripcion =
+            producto.querySelector('p')
+                ?.textContent.toLowerCase() || '';
 
-        const categorias = producto.dataset.categoria || '';
+        const personalizacion =
+            producto.querySelector('.personalizacion')
+                ?.textContent.toLowerCase() || '';
+
+        const categorias =
+            producto.dataset.categoria || '';
 
         const coincideTexto =
             nombre.includes(texto) ||
@@ -1289,66 +1036,212 @@ function filtrarProductos() {
 
         producto.style.display =
             coincideTexto && coincideCategoria ? '' : 'none';
+
     });
+
 }
 
-// Buscar mientras se escribe
+
 if (inputBuscador) {
     inputBuscador.addEventListener('input', filtrarProductos);
 }
 
-// Filtrar por categoría
-botonesCategoria.forEach(boton => {
+
+botonesCategoria.forEach((boton) => {
+
     boton.addEventListener('click', () => {
-        botonesCategoria.forEach(btn => {
+
+        botonesCategoria.forEach((btn) => {
             btn.classList.remove('activo');
         });
 
         boton.classList.add('activo');
-        categoriaSeleccionada = boton.dataset.categoria || 'todos';
+
+        categoriaSeleccionada =
+            boton.dataset.categoria || 'todos';
 
         filtrarProductos();
+
     });
+
 });
 
 
-/* =========================================
-   CARGA INICIAL
-========================================= */
+// ========================================
+// 26. FORMULARIO DE CONSULTAS
+// ========================================
 
-// Actualizar carrito y favoritos al cargar la página
-actualizarCarrito();
-actualizarFavoritos();
+const formularioConsulta =
+    document.getElementById('formularioConsulta');
+
+if (formularioConsulta) {
+
+    formularioConsulta.addEventListener('submit', async (evento) => {
+
+        // Evitar que la página se recargue.
+        evento.preventDefault();
+
+        // Obtener los datos del formulario.
+        const nombre =
+            document.getElementById('nombreConsulta')?.value.trim();
+
+        const correo =
+            document.getElementById('correoConsulta')?.value.trim();
+
+        const producto =
+            document.getElementById('temaConsulta')?.value.trim() || '';
+
+        const mensaje =
+            document.getElementById('mensajeConsulta')?.value.trim();
+
+        // Validar los campos obligatorios.
+        if (!nombre || !correo || !mensaje) {
+
+            mostrarToast(
+                'Completa los campos obligatorios.',
+                '⚠️'
+            );
+
+            return;
+        }
+
+        // Obtener el botón de envío.
+        const btnEnviar =
+            document.getElementById('btnEnviarConsulta');
+
+        // Evitar varios envíos al mismo tiempo.
+        if (btnEnviar) {
+            btnEnviar.disabled = true;
+            btnEnviar.textContent = 'Enviando...';
+        }
+
+        try {
+
+            // Enviar los datos al backend.
+            const respuesta = await fetch(
+                `${URL_BACKEND}/api/consultas`,
+                {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify({
+                        nombre,
+                        correo,
+                        producto,
+                        mensaje
+                    })
+                }
+            );
+
+            // Convertir la respuesta del servidor a JSON.
+            const resultado = await respuesta.json();
+
+            // Comprobar si el servidor respondió correctamente.
+            if (!respuesta.ok) {
+
+                throw new Error(
+                    resultado.mensaje ||
+                    'No se pudo guardar la consulta.'
+                );
+
+            }
+
+            // Mostrar confirmación únicamente si se guardó.
+            mostrarToast(
+                '¡Tu consulta se guardó correctamente!',
+                '💌'
+            );
+
+            // Limpiar el formulario.
+            formularioConsulta.reset();
+
+        } catch (error) {
+
+            console.error(
+                'Error al enviar la consulta:',
+                error
+            );
+
+            mostrarToast(
+                'No pudimos guardar tu consulta. Inténtalo nuevamente.',
+                '⚠️'
+            );
+
+        } finally {
+
+            // Reactivar el botón.
+            if (btnEnviar) {
+                btnEnviar.disabled = false;
+                btnEnviar.textContent = 'Enviar consulta 💌';
+            }
+
+        }
+
+    });
+
+}
 
 
-/* =========================================
-   MODO CLARO / MODO OSCURO
-========================================= */
+// ========================================
+// 27. MODO CLARO / MODO OSCURO
+// ========================================
 
-const btnTema = document.getElementById('btnTema');
+const btnTema =
+    document.getElementById('btnTema');
 
 if (btnTema) {
-    // Recuperar el tema guardado
-    const temaGuardado = localStorage.getItem('temaTejebonito');
+
+    const temaGuardado =
+        localStorage.getItem('temaTejebonito');
 
     if (temaGuardado === 'oscuro') {
+
         document.body.classList.add('modo-oscuro');
         btnTema.textContent = '☀️';
+
     } else {
+
         document.body.classList.remove('modo-oscuro');
         btnTema.textContent = '🌙';
+
     }
 
-    // Cambiar el tema al pulsar el botón
     btnTema.addEventListener('click', () => {
+
         document.body.classList.toggle('modo-oscuro');
 
         if (document.body.classList.contains('modo-oscuro')) {
+
             btnTema.textContent = '☀️';
-            localStorage.setItem('temaTejebonito', 'oscuro');
+
+            localStorage.setItem(
+                'temaTejebonito',
+                'oscuro'
+            );
+
         } else {
+
             btnTema.textContent = '🌙';
-            localStorage.setItem('temaTejebonito', 'claro');
+
+            localStorage.setItem(
+                'temaTejebonito',
+                'claro'
+            );
+
         }
+
     });
+
 }
+
+
+// ========================================
+// 28. CARGA INICIAL
+// ========================================
+
+// Actualizar carrito y favoritos al cargar la página.
+actualizarCarrito();
+actualizarFavoritos();

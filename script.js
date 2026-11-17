@@ -10,7 +10,7 @@
 // ========================================
 
 // Cambiar cuando tengas el número de WhatsApp del emprendimiento.
-const NUMERO_WHATSAPP = '57TU_NUMERO';
+const NUMERO_WHATSAPP = '573117101908';
 
 // Dirección del backend.
 const URL_BACKEND = 'https://tejebonito-backend.onrender.com';

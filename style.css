@@ -1134,3 +1134,131 @@ body.modo-oscuro .btn-tema {
     background-color: #3a3337;
     color: #ffffff;
 }
+
+
+/* ========================================
+   CORRECCIONES RESPONSIVE - TEJEBONITO
+   ======================================== */
+
+/* Evitar desbordamientos horizontales */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+input,
+textarea,
+button {
+    max-width: 100%;
+}
+
+/* Corregir formulario */
+.formulario-consulta {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+    width: 100%;
+    min-width: 0;
+    background-color: var(--color-fondo);
+}
+
+/* Ajustes para celulares */
+@media (max-width: 700px) {
+
+    main {
+        padding: 0 12px;
+        width: 100%;
+    }
+
+    section {
+        padding: 30px 8px;
+    }
+
+    .formulario-consulta {
+        width: 100%;
+        margin: 20px auto;
+        padding: 18px 15px;
+        border-radius: 15px;
+    }
+
+    .campo-formulario {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .campo-formulario input,
+    .campo-formulario textarea {
+        font-size: 16px;
+    }
+
+    /* Separar menú y botón de tema */
+    .menu-hamburguesa {
+        right: 15px;
+        top: 20px;
+        z-index: 110;
+    }
+
+    .btn-tema {
+        right: 65px;
+        top: 20px;
+        width: 38px;
+        height: 38px;
+    }
+
+    /* Beneficios */
+    .beneficios-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Evitar tarjetas demasiado anchas */
+    #productos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #productos article {
+        min-width: 0;
+    }
+
+    /* Paneles laterales */
+    .panel-carrito,
+    .panel-favoritos {
+        width: min(85%, 320px);
+    }
+
+    /* Evitar desbordamientos en botones */
+    .categorias-container {
+        gap: 8px;
+    }
+
+    .btn-categoria {
+        max-width: 100%;
+    }
+}
+
+/* Celulares muy pequeños */
+@media (max-width: 380px) {
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .formulario-consulta {
+        padding: 15px 12px;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+
+    #inicio h2 {
+        font-size: 1.6rem;
+    }
+}

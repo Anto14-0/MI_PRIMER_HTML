@@ -13,7 +13,7 @@
 const NUMERO_WHATSAPP = '57TU_NUMERO';
 
 // Dirección del backend.
-const URL_BACKEND = 'http://localhost:3000';
+const URL_BACKEND = 'https://tejebonito-backend.onrender.com';
 
 
 // ========================================

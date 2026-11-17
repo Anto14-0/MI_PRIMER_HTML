@@ -632,6 +632,78 @@
 
     </footer>
 
+<!-- ========================================
+     TEJEBOT 🤖
+======================================== -->
+
+<div id="tejebot-widget">
+
+    <!-- BOTÓN PARA ABRIR -->
+    <button
+        id="tejebot-abrir"
+        aria-label="Abrir TejeBot">
+        🧶
+    </button>
+
+    <!-- VENTANA DEL CHAT -->
+    <section
+        id="tejebot-ventana"
+        aria-label="Chat con TejeBot"
+        aria-hidden="true">
+
+        <!-- ENCABEZADO -->
+        <div class="tejebot-header">
+
+            <div>
+                <h3>🧶 TejeBot</h3>
+                <p>Tu asistente de crochet</p>
+            </div>
+
+            <button
+                id="tejebot-cerrar"
+                aria-label="Cerrar TejeBot">
+                ✕
+            </button>
+
+        </div>
+
+        <!-- MENSAJES -->
+        <div
+            id="tejebot-mensajes"
+            aria-live="polite">
+
+            <div class="tejebot-mensaje bot">
+                ¡Hola! 😊 Soy TejeBot.
+                Estoy aquí para ayudarte con tus dudas
+                sobre crochet y manualidades. ¿Qué
+                te gustaría aprender hoy? 🧶
+            </div>
+
+        </div>
+
+        <!-- FORMULARIO -->
+        <form id="tejebot-formulario">
+
+            <input
+                type="text"
+                id="tejebot-input"
+                placeholder="Escribe tu pregunta..."
+                maxlength="1000"
+                autocomplete="off"
+                required>
+
+            <button
+                type="submit"
+                id="tejebot-enviar"
+                aria-label="Enviar mensaje">
+                ➤
+            </button>
+
+        </form>
+
+    </section>
+
+</div>
 
     <!-- BOTONES FLOTANTES Y PANELES -->
 

@@ -1238,6 +1238,41 @@ if (btnTema) {
 }
 
 
+
+// ========================================
+// 28. ABRIR Y CERRAR TEJEBOT
+// ========================================
+
+const tejebotAbrir =
+    document.getElementById('tejebot-abrir');
+
+const tejebotCerrar =
+    document.getElementById('tejebot-cerrar');
+
+const tejebotVentana =
+    document.getElementById('tejebot-ventana');
+
+if (tejebotAbrir && tejebotCerrar && tejebotVentana) {
+
+    tejebotAbrir.addEventListener('click', () => {
+
+        tejebotVentana.classList.add('abierto');
+        tejebotVentana.setAttribute('aria-hidden', 'false');
+
+        tejebotAbrir.style.display = 'none';
+
+    });
+
+    tejebotCerrar.addEventListener('click', () => {
+
+        tejebotVentana.classList.remove('abierto');
+        tejebotVentana.setAttribute('aria-hidden', 'true');
+
+        tejebotAbrir.style.display = 'block';
+
+    });
+
+}
 // ========================================
 // 28. CARGA INICIAL
 // ========================================
@@ -1245,3 +1280,108 @@ if (btnTema) {
 // Actualizar carrito y favoritos al cargar la página.
 actualizarCarrito();
 actualizarFavoritos();
+
+// ========================================
+// 30. ELEMENTOS DE TEJEBOT
+// ========================================
+
+const formularioTejeBot =
+    document.getElementById('tejebot-formulario');
+
+const inputTejeBot =
+    document.getElementById('tejebot-input');
+
+const mensajesTejeBot =
+    document.getElementById('tejebot-mensajes');
+
+const botonEnviarTejeBot =
+    document.getElementById('tejebot-enviar');
+
+// Agregar mensajes a la conversación
+function agregarMensajeTejeBot(texto, tipo) {
+
+    const mensaje = document.createElement('div');
+
+    mensaje.className = `tejebot-mensaje ${tipo}`;
+    mensaje.textContent = texto;
+
+    mensajesTejeBot.appendChild(mensaje);
+
+    mensajesTejeBot.scrollTop =
+        mensajesTejeBot.scrollHeight;
+}
+
+// ========================================
+// 31. CONECTAR TEJEBOT CON EL BACKEND
+// ========================================
+
+if (formularioTejeBot) {
+
+    formularioTejeBot.addEventListener('submit', async (evento) => {
+
+        evento.preventDefault();
+
+        const pregunta = inputTejeBot.value.trim();
+
+        if (!pregunta) return;
+
+        // Mostrar la pregunta del usuario
+        agregarMensajeTejeBot(pregunta, 'usuario');
+
+        inputTejeBot.value = '';
+        inputTejeBot.disabled = true;
+        botonEnviarTejeBot.disabled = true;
+
+        // Mostrar mensaje de espera
+        agregarMensajeTejeBot(
+            'TejeBot está pensando... 🧶',
+            'bot'
+        );
+
+        const mensajeEspera =
+            mensajesTejeBot.lastElementChild;
+
+        try {
+
+            const respuesta = await fetch(
+                'https://tejebonito-backend.onrender.com/api/tejebot',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        mensaje: pregunta
+                    })
+                }
+            );
+
+            const resultado = await respuesta.json();
+
+            if (!respuesta.ok) {
+                throw new Error(
+                    resultado.mensaje || 'No se pudo obtener una respuesta.'
+                );
+            }
+
+            mensajeEspera.textContent =
+                resultado.respuesta || 'No recibí una respuesta.';
+
+        } catch (error) {
+
+            console.error('Error de TejeBot:', error);
+
+            mensajeEspera.textContent =
+                '¡Ups! No pude conectarme. Inténtalo nuevamente. 💗';
+
+        } finally {
+
+            inputTejeBot.disabled = false;
+            botonEnviarTejeBot.disabled = false;
+            inputTejeBot.focus();
+
+        }
+
+    });
+
+}

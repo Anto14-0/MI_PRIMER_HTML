@@ -1297,3 +1297,161 @@ body.modo-oscuro .btn-tema {
         padding: 22px 18px;
     }
 }
+
+/* ========================================
+   TEJEBOT 🤖
+======================================== */
+
+#tejebot-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    font-family: inherit;
+}
+
+/* BOTÓN FLOTANTE */
+
+#tejebot-abrir {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: #ff85a2;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+#tejebot-abrir:hover {
+    transform: scale(1.08);
+}
+
+/* VENTANA DEL CHAT */
+
+#tejebot-ventana {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 340px;
+    height: 450px;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 110px);
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+#tejebot-ventana.abierto {
+    display: flex;
+}
+
+/* ENCABEZADO */
+
+.tejebot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #ff85a2;
+    color: white;
+}
+
+.tejebot-header h3 {
+    margin: 0;
+}
+
+.tejebot-header p {
+    margin: 4px 0 0;
+    font-size: 13px;
+}
+
+#tejebot-cerrar {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ÁREA DE MENSAJES */
+
+#tejebot-mensajes {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background: #fff8fa;
+}
+
+.tejebot-mensaje {
+    max-width: 85%;
+    padding: 10px 13px;
+    margin-bottom: 12px;
+    border-radius: 13px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.tejebot-mensaje.bot {
+    background: #ffe0e9;
+    color: #49343b;
+    margin-right: auto;
+}
+
+.tejebot-mensaje.usuario {
+    background: #ff85a2;
+    color: white;
+    margin-left: auto;
+}
+
+/* FORMULARIO */
+
+#tejebot-formulario {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #f3dce3;
+    background: white;
+}
+
+#tejebot-input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid #e5cbd4;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+#tejebot-enviar {
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #ff85a2;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+
+    #tejebot-widget {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    #tejebot-ventana {
+        width: calc(100vw - 30px);
+        height: min(450px, calc(100dvh - 110px));
+    }
+
+}

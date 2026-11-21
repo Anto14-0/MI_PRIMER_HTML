@@ -1,3 +1,4 @@
+
 /* ========================================
    1. VARIABLES Y ESTILOS GENERALES
    ======================================== */
@@ -537,43 +538,551 @@ aside h3 {
     font-family: var(--fuente-principal);
     font-size: 1rem;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 3px rgba(255, 133, 162, 0.15);
+}
+
+.campo-formulario textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#btnEnviarConsulta {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--color-principal);
+    color: white;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#btnEnviarConsulta:hover {
+    background-color: var(--color-principal-hover);
+    transform: translateY(-2px);
+}
+
+footer {
+    background-color: var(--color-principal);
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
 
 /* ========================================
-   11. TARJETAS DE BENEFICIOS
+   11. BOTONES FLOTANTES
+   ======================================== */
+
+#volverArriba {
+    display: none;
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#volverArriba:hover {
+    background-color: var(--color-principal-hover);
+    transform: scale(1.1);
+}
+
+#whatsappFlotante {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#whatsappFlotante:hover {
+    background-color: #1ebe5b;
+}
+
+
+/* ========================================
+   12. GALERÍA / LIGHTBOX
+   ======================================== */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.esta-abierto {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 12px;
+}
+
+.lightbox__cerrar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+
+
+/* ========================================
+   13. CARRITO Y FAVORITOS
+   ======================================== */
+
+#btnCarrito {
+    position: fixed;
+    bottom: 145px;
+    right: 20px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#btnFavoritos {
+    position: fixed;
+    bottom: 205px;
+    right: 20px;
+    background-color: var(--color-principal-hover);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.panel-carrito,
+.panel-favoritos {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 300px;
+    height: 100%;
+    background-color: var(--color-tarjeta);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
+    z-index: 1500;
+    padding: 24px 20px 30px;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+}
+
+.panel-carrito.esta-abierto,
+.panel-favoritos.esta-abierto {
+    display: block;
+    right: 0;
+}
+
+.panel-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-rosado-suave);
+    color: var(--color-principal-hover);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.panel-close:hover {
+    background: var(--color-principal);
+    color: white;
+}
+
+.panel-carrito h3,
+.panel-favoritos h3 {
+    color: var(--color-principal);
+    margin-bottom: 14px;
+}
+
+.panel-carrito ul,
+.panel-favoritos ul {
+    list-style: none;
+    margin-bottom: 14px;
+}
+
+.panel-carrito li {
+    background-color: var(--color-rosado-suave);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.favorito-item {
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.favorito-item:hover {
+    background-color: var(--color-rosado-suave);
+}
+
+.total-carrito {
+    font-size: 1.05rem;
+    margin: 14px 0;
+    text-align: center;
+}
+
+.boton-whatsapp-pedido {
+    display: block;
+    text-align: center;
+    background-color: #25D366;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.boton-whatsapp-pedido:hover {
+    background-color: #1ebe5b;
+}
+
+.resaltado-temporal {
+    box-shadow: 0 0 0 3px var(--color-principal) !important;
+}
+
+
+/* ========================================
+   14. NOTIFICACIÓN TOAST
+   ======================================== */
+
+.toast-notification {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-principal);
+    color: white;
+    padding: 14px 24px;
+    border-radius: 30px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    z-index: 3000;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.toast-notification.mostrar {
+    display: flex;
+    animation: aparecerToast 0.3s ease;
+}
+
+@keyframes aparecerToast {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+/* ========================================
+   15. RESPONSIVE
+   ======================================== */
+
+@media (max-width: 900px) {
+    .beneficios-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .menu-hamburguesa {
+        display: block !important;
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        z-index: 110;
+    }
+
+    .btn-tema {
+        right: 65px;
+        top: 20px;
+        width: 38px;
+        height: 38px;
+        z-index: 110;
+    }
+
+    /* Menú cerrado: siempre oculto en móvil */
+    nav#navTeje {
+        display: none !important;
+        position: static;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+        height: auto;
+        gap: 8px;
+        padding: 10px 15px;
+        visibility: visible;
+        opacity: 1;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Menú abierto: aparece al pulsar ☰ */
+    nav#navTeje.esta-abierto {
+        display: flex !important;
+    }
+
+    nav#navTeje a {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    #inicio h2 {
+        font-size: 1.9rem;
+    }
+
+    section {
+        padding: 30px 8px;
+    }
+
+    main {
+        padding: 0 12px;
+        width: 100%;
+    }
+
+    #productos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #productos article {
+        min-width: 0;
+    }
+
+    .formulario-consulta {
+        width: 100%;
+        margin: 20px auto;
+        padding: 18px 15px;
+        border-radius: 15px;
+    }
+
+    .campo-formulario {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .campo-formulario input,
+    .campo-formulario textarea {
+        font-size: 16px;
+    }
+
+    .panel-carrito,
+    .panel-favoritos {
+        width: min(85%, 320px);
+    }
+
+    .badge-mas-vendido {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+
+    #whatsappFlotante,
+    #btnCarrito,
+    #btnFavoritos,
+    #volverArriba {
+        right: 15px;
+    }
+
+    .beneficios-container {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion-categorias {
+        padding: 15px 10px;
+    }
+
+    .btn-categoria {
+        font-size: 14px;
+        padding: 9px 14px;
+        max-width: 100%;
+    }
+
+    .seccion-beneficios {
+        margin: 40px 15px;
+        padding: 30px 15px;
+    }
+
+    .seccion-beneficios h2 {
+        font-size: 25px;
+    }
+
+    .categorias-container {
+        gap: 8px;
+    }
+}
+
+
+/* ========================================
+   16. CATEGORÍAS
+   ======================================== */
+
+.seccion-categorias {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 1100px;
+}
+
+.seccion-categorias h2 {
+    color: var(--color-principal);
+    margin-bottom: 20px;
+}
+
+.categorias-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn-categoria {
+    border: 2px solid var(--color-borde);
+    background-color: white;
+    color: var(--color-texto);
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-categoria:hover {
+    background-color: var(--color-rosado-suave);
+    border-color: var(--color-principal);
+    transform: translateY(-2px);
+}
+
+.btn-categoria.activo {
+    background-color: var(--color-principal);
+    color: white;
+    border-color: var(--color-principal);
+}
+
+
+/* ========================================
+   17. ¿POR QUÉ ELEGIR TEJEBONITO?
    ======================================== */
 
 .seccion-beneficios {
-    width: 100%;
-    max-width: 100%;
-    margin: 30px auto;
-    padding: 35px 20px;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
     background-color: var(--color-rosado-suave);
     border-radius: 20px;
-    overflow: hidden;
+}
+
+.seccion-beneficios h2 {
+    color: var(--color-principal);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.intro-beneficios {
+    color: var(--color-texto);
+    margin-bottom: 30px;
 }
 
 .beneficios-container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
 }
 
 .beneficio-card {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    padding: 25px 18px;
     background-color: var(--color-tarjeta);
-    border: 1px solid var(--color-borde);
+    padding: 25px 18px;
     border-radius: 16px;
-    text-align: center;
-    overflow-wrap: break-word;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beneficio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.beneficio-icono {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
 
 .beneficio-card h3 {
@@ -583,144 +1092,366 @@ aside h3 {
 
 .beneficio-card p {
     color: var(--color-texto);
+    line-height: 1.5;
+    margin: 0;
 }
 
 
 /* ========================================
-   12. RESPONSIVE: TABLETAS
+   18. MODO CLARO / MODO OSCURO
    ======================================== */
 
-@media (max-width: 900px) {
+.btn-tema {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    border: none;
+    background: white;
+    color: var(--color-texto);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
 
-    .beneficios-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+.btn-tema:hover {
+    transform: scale(1.08);
+}
 
+
+/* COLORES DEL MODO OSCURO */
+
+body.modo-oscuro {
+    --color-fondo: #211d20;
+    --color-tarjeta: #302a2e;
+    --color-texto: #f5edf0;
+    --color-borde: #604854;
+    --color-rosado-suave: #3a2931;
+
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+body.modo-oscuro header {
+    background-color: #30242a;
+}
+
+body.modo-oscuro nav {
+    background-color: #181518;
+}
+
+body.modo-oscuro nav a {
+    color: #f8dce7;
+}
+
+body.modo-oscuro .producto-card,
+body.modo-oscuro .beneficio-card,
+body.modo-oscuro aside {
+    background-color: var(--color-tarjeta);
+    color: var(--color-texto);
+}
+
+body.modo-oscuro input,
+body.modo-oscuro textarea {
+    background-color: #3a3337;
+    color: #ffffff;
+    border-color: var(--color-borde);
+}
+
+body.modo-oscuro .btn-categoria {
+    background-color: #302a2e;
+    color: #f5edf0;
+    border-color: var(--color-borde);
+}
+
+body.modo-oscuro .btn-categoria.activo {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+body.modo-oscuro .seccion-beneficios {
+    background-color: var(--color-rosado-suave);
+}
+
+body.modo-oscuro .btn-tema {
+    background-color: #3a3337;
+    color: #ffffff;
 }
 
 
 /* ========================================
-   13. RESPONSIVE: CELULARES
-   ======================================== */
-
-@media (max-width: 700px) {
-
-    header {
-        padding: 35px 15px 20px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    .menu-hamburguesa {
-        display: block;
-    }
-
-    nav {
-        flex-wrap: wrap;
-        gap: 8px;
-        padding: 12px 10px;
-    }
-
-    nav a {
-        padding: 7px 10px;
-        font-size: 0.9rem;
-    }
-
-    main {
-        padding: 0 10px;
-        width: 100%;
-    }
-
-    section {
-        padding: 35px 10px;
-    }
-
-    section h2 {
-        font-size: 1.7rem;
-    }
-
-    #inicio {
-        padding: 40px 10px;
-    }
-
-    #inicio h2 {
-        font-size: 1.8rem;
-    }
-
-    #productos {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
-    }
-
-    #productos article {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .formulario-consulta {
-        padding: 18px;
-    }
-
-    .seccion-beneficios {
-        width: 100%;
-        max-width: 100%;
-        margin: 25px auto;
-        padding: 25px 12px;
-    }
-
-    .beneficios-container {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 15px;
-        width: 100%;
-        min-width: 0;
-    }
-
-    .beneficio-card {
-        display: block;
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        margin: 0;
-        padding: 22px 16px;
-    }
-
-}
-
-
-/* ========================================
-   14. RESPONSIVE: CELULARES PEQUEÑOS
+   19. AJUSTES PARA CELULARES PEQUEÑOS
    ======================================== */
 
 @media (max-width: 380px) {
 
-    main {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
-    .seccion-beneficios {
-        padding: 20px 10px;
-    }
-
-    .beneficios-container {
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 12px;
-    }
-
-    .beneficio-card {
-        width: 100%;
-        padding: 20px 14px;
-    }
-
     header h1 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
+    }
+
+    .formulario-consulta {
+        padding: 15px 12px;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+
+    #inicio h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ========================================
+   FORMULARIO DE CONTACTO - TEJEBONITO
+   ======================================== */
+
+#contacto {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--color-fondo);
+}
+
+#contacto h2 {
+    color: var(--color-principal);
+    margin-bottom: 12px;
+}
+
+#contacto > p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+}
+
+#formularioConsulta {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    background: var(--color-tarjeta);
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+#formularioConsulta label {
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+#formularioConsulta input,
+#formularioConsulta textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font: inherit;
+    box-sizing: border-box;
+}
+
+#formularioConsulta textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#formularioConsulta input:focus,
+#formularioConsulta textarea:focus {
+    outline: 2px solid var(--color-principal);
+    border-color: var(--color-principal);
+}
+
+#btnEnviarConsulta {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: var(--color-principal);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#btnEnviarConsulta:hover {
+    background: var(--color-principal-hover);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    #contacto {
+        padding: 40px 15px;
+    }
+
+    #formularioConsulta {
+        padding: 22px 18px;
+    }
+}
+
+/* ========================================
+   TEJEBOT 🤖
+======================================== */
+
+#tejebot-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    font-family: inherit;
+}
+
+/* BOTÓN FLOTANTE */
+
+#tejebot-abrir {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: #ff85a2;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+#tejebot-abrir:hover {
+    transform: scale(1.08);
+}
+
+/* VENTANA DEL CHAT */
+
+#tejebot-ventana {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 340px;
+    height: 450px;
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 110px);
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+#tejebot-ventana.abierto {
+    display: flex;
+}
+
+/* ENCABEZADO */
+
+.tejebot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #ff85a2;
+    color: white;
+}
+
+.tejebot-header h3 {
+    margin: 0;
+}
+
+.tejebot-header p {
+    margin: 4px 0 0;
+    font-size: 13px;
+}
+
+#tejebot-cerrar {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* ÁREA DE MENSAJES */
+
+#tejebot-mensajes {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background: #fff8fa;
+}
+
+.tejebot-mensaje {
+    max-width: 85%;
+    padding: 10px 13px;
+    margin-bottom: 12px;
+    border-radius: 13px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.tejebot-mensaje.bot {
+    background: #ffe0e9;
+    color: #49343b;
+    margin-right: auto;
+}
+
+.tejebot-mensaje.usuario {
+    background: #ff85a2;
+    color: white;
+    margin-left: auto;
+}
+
+/* FORMULARIO */
+
+#tejebot-formulario {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #f3dce3;
+    background: white;
+}
+
+#tejebot-input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid #e5cbd4;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+}
+
+#tejebot-enviar {
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #ff85a2;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+
+    #tejebot-widget {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    #tejebot-ventana {
+        width: calc(100vw - 30px);
+        height: min(450px, calc(100dvh - 110px));
     }
 
 }

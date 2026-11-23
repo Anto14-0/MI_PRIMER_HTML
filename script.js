@@ -114,7 +114,7 @@ const whatsappFlotante =
 function configurarWhatsApp() {
 
     const enlaceWhatsApp =
-        `https://wa.me/${NUMERO_WHATSAPP}`;
+        `https://wa.me/573117107908`;
 
     if (enlaceWhatsAppContacto) {
         enlaceWhatsAppContacto.href = enlaceWhatsApp;

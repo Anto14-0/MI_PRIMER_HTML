@@ -232,3 +232,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
 });
+
+import { crearRutasAdmin } from './admin-routes.js';
+
+// Pásale una función que devuelva tu arreglo o consulta de base de datos de consultas
+app.use(crearRutasAdmin(() => consultasGuardadas));

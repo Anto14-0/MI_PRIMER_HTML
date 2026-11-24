@@ -5,34 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TEJEBONITO 🧶 - Crochet hecho a mano</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Archivo CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <!-- ENCABEZADO -->
     <header>
         <h1>TEJEBONITO 🧶</h1>
-        <p>Crochet hecho a mano con amor y creatividad.</p>
-        <button class="menu-hamburguesa" id="botonMenuTeje" aria-label="Abrir menú">☰</button>
-
-        <button id="btnTema" class="btn-tema" aria-label="Cambiar tema"> 🌙
-        </button>
+        <p>Crochet hecho a mano con amor, lana fresca y creatividad.</p>
+        <button class="menu-hamburguesa" id="botonMenuTeje" aria-label="Abrir menú" aria-expanded="false">☰</button>
+        <button id="btnTema" class="btn-tema" aria-label="Cambiar tema">🌙</button>
     </header>
 
+    <!-- NAVEGACIÓN -->
     <nav id="navTeje">
         <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
-        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#combos">Combos</a>
+        <a href="#asistente-estilo">Asistente</a>
+        <a href="#faq">Cuidados y FAQ</a>
         <a href="#contacto">Contacto</a>
     </nav>
-
 
     <!-- CONTENIDO PRINCIPAL -->
     <main>
@@ -40,22 +37,18 @@
         <!-- INICIO -->
         <section id="inicio">
             <h2>Detalles que cobran vida con cada puntada ✨</h2>
-
             <p>
                 Bienvenida a TEJEBONITO, un espacio donde cada creación
                 nace de la creatividad, la dedicación y el amor por el crochet.
             </p>
-
             <a href="#productos">Descubre todos nuestros productos 🧶</a>
         </section>
-
 
         <!-- AVISO BAJO PEDIDO -->
         <p class="aviso-bajo-pedido">
             🧶 Todas nuestras creaciones son hechas bajo pedido y 100% personalizadas —
-            tiempo de entrega estimado: 5-7 días.
+            tiempo de entrega estimado: 5-7 días hábiles.
         </p>
-
 
         <!-- BUSCADOR -->
         <div class="contenedor-buscador">
@@ -63,785 +56,518 @@
                 type="text"
                 id="inputBuscador"
                 class="input-buscador-tejebonito"
-                placeholder="🔍 Buscar scrunchies, tops, accesorios..."
+                placeholder="🔍 Buscar cintillos, scrunchies, posavasos, marcapáginas..."
             >
         </div>
 
-
         <!-- CATEGORÍAS -->
         <section class="seccion-categorias">
-
             <h2>🧶 Explora por categoría</h2>
-
             <div class="categorias-container">
-
-                <button
-                    class="btn-categoria activo"
-                    data-categoria="todos">
-                    ✨ Todos
-                </button>
-
-                <button
-                    class="btn-categoria"
-                    data-categoria="accesorios">
-                    🧶 Accesorios
-                </button>
-
-                <button
-                    class="btn-categoria"
-                    data-categoria="libros">
-                    📚 Para libros
-                </button>
-
-                <button
-                    class="btn-categoria"
-                    data-categoria="regalos">
-                    🎁 Regalos
-                </button>
-
-                <button
-                    class="btn-categoria"
-                    data-categoria="personalizados">
-                    💕 Personalizados
-                </button>
-
+                <button class="btn-categoria activo" data-categoria="todos">✨ Todos</button>
+                <button class="btn-categoria" data-categoria="accesorios">🧶 Accesorios</button>
+                <button class="btn-categoria" data-categoria="libros">📚 Para libros</button>
+                <button class="btn-categoria" data-categoria="regalos">🎁 Regalos</button>
+                <button class="btn-categoria" data-categoria="personalizados">💕 Personalizados</button>
+                <button class="btn-categoria" data-categoria="combos">🎀 Combos</button>
             </div>
-
         </section>
-
 
         <!-- PRODUCTOS -->
         <section id="productos">
-
             <h2>Descubre nuestras creaciones 🧶</h2>
-
             <p>
-                Pequeños detalles tejidos a mano, ideales para acompañar
-                tus momentos favoritos y darle un toque especial a tu día.
+                Elige tu color de lana favorito en cada producto. Cada pieza se teje
+                desde cero para que llegue suave y en perfecto estado.
             </p>
 
-
             <!-- POSAVASOS -->
-            <article
-                class="producto-card"
-                data-categoria="accesorios regalos">
-
-                <button
-                    class="btn-favorito"
-                    data-nombre="Posavasos"
-                    aria-label="Marcar como favorito">
-                    🤍
-                </button>
-
-                <img
-                    src="img/p.png"
-                    alt="Posavasos tejido a crochet"
-                    class="producto-imagen">
-
+            <article class="producto-card" data-categoria="accesorios regalos personalizados">
+                <button class="btn-favorito" data-nombre="Posavasos" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/p.png" alt="Posavasos tejido a crochet" class="producto-imagen">
                 <h3>Posavasos 🧶</h3>
+                <p>Posavasos tejidos a mano, ideales para darle un toque especial a cualquier espacio.</p>
+                <p class="precio"><strong>$12.000 COP</strong></p>
 
-                <p>
-                    Posavasos tejidos a mano, ideales para darle
-                    un toque especial a cualquier espacio.
-                </p>
-
-                <p class="precio">
-                    <strong>$12.000 COP</strong>
-                </p>
+                <div class="colores-lana" data-producto="Posavasos"></div>
 
                 <div class="personalizacion">
-
                     <label>
                         Tamaño / detalle
-                        <input
-                            type="text"
-                            class="input-tamano"
-                            placeholder="Ej: mediano, circular">
+                        <input type="text" class="input-tamano" placeholder="Ej: mediano, circular, flor">
                     </label>
-
                     <label>
                         Cantidad
-                        <input
-                            type="number"
-                            class="input-cantidad"
-                            value="1"
-                            min="1">
+                        <input type="number" class="input-cantidad" value="1" min="1">
                     </label>
-
                 </div>
 
-                <button
-                    class="btn-agregar-pedido"
-                    data-nombre="Posavasos"
-                    data-precio="12000">
+                <button class="btn-agregar-pedido" data-nombre="Posavasos" data-precio="12000">
                     Agregar al pedido
                 </button>
-
             </article>
-
 
             <!-- MARCAPÁGINAS -->
-            <article
-                class="producto-card"
-                data-categoria="libros regalos">
-
-                <button
-                    class="btn-favorito"
-                    data-nombre="Marcapáginas"
-                    aria-label="Marcar como favorito">
-                    🤍
-                </button>
-
-                <img
-                    src="img/marcapáginas.png"
-                    alt="Marcapáginas tejido a crochet"
-                    class="producto-imagen">
-
+            <article class="producto-card" data-categoria="libros regalos personalizados">
+                <button class="btn-favorito" data-nombre="Marcapáginas" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/marcapáginas.png" alt="Marcapáginas tejido a crochet" class="producto-imagen">
                 <h3>Marcapáginas 🧶</h3>
+                <p>Marcapáginas tejidos para acompañar tus momentos favoritos de lectura.</p>
+                <p class="precio"><strong>$10.000 COP</strong></p>
 
-                <p>
-                    Marcapáginas tejidos para acompañar
-                    tus momentos favoritos de lectura.
-                </p>
-
-                <p class="precio">
-                    <strong>$10.000 COP</strong>
-                </p>
+                <div class="colores-lana" data-producto="Marcapáginas"></div>
 
                 <div class="personalizacion">
-
                     <label>
-                        Color / detalle
-                        <input
-                            type="text"
-                            class="input-color"
-                            placeholder="Ej: amarillo girasol">
+                        Color / detalle extra
+                        <input type="text" class="input-color" placeholder="Ej: diseño girasol o corazón">
                     </label>
-
                     <label>
                         Cantidad
-                        <input
-                            type="number"
-                            class="input-cantidad"
-                            value="1"
-                            min="1">
+                        <input type="number" class="input-cantidad" value="1" min="1">
                     </label>
-
                 </div>
 
-                <button
-                    class="btn-agregar-pedido"
-                    data-nombre="Marcapáginas"
-                    data-precio="10000">
+                <button class="btn-agregar-pedido" data-nombre="Marcapáginas" data-precio="10000">
                     Agregar al pedido
                 </button>
-
             </article>
-
 
             <!-- CINTILLO -->
-            <article
-                class="producto-card"
-                data-categoria="accesorios personalizados">
-
-                <button
-                    class="btn-favorito"
-                    data-nombre="Cintillo"
-                    aria-label="Marcar como favorito">
-                    🤍
-                </button>
-
-                <img
-                    src="img/cintillo.png"
-                    alt="Cintillo tejido a crochet"
-                    class="producto-imagen">
-
+            <article class="producto-card" data-categoria="accesorios personalizados">
+                <button class="btn-favorito" data-nombre="Cintillo" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/cintillo.png" alt="Cintillo tejido a crochet" class="producto-imagen">
                 <h3>Cintillo 🧶</h3>
+                <p>Cintillos tejidos a mano cómodos y flexibles que combinan creatividad y estilo.</p>
+                <p class="precio"><strong>$18.000 COP</strong></p>
 
-                <p>
-                    Cintillos tejidos a mano que combinan
-                    creatividad y estilo.
-                </p>
-
-                <p class="precio">
-                    <strong>$18.000 COP</strong>
-                </p>
+                <div class="colores-lana" data-producto="Cintillo"></div>
 
                 <div class="personalizacion">
-
                     <label>
-                        Color / detalle
-                        <input
-                            type="text"
-                            class="input-color"
-                            placeholder="Ej: beige, tono natural">
+                        Medida / detalle extra
+                        <input type="text" class="input-color" placeholder="Ej: ancho trenzado, adulto o niña">
                     </label>
-
                     <label>
                         Cantidad
-                        <input
-                            type="number"
-                            class="input-cantidad"
-                            value="1"
-                            min="1">
+                        <input type="number" class="input-cantidad" value="1" min="1">
                     </label>
-
                 </div>
 
-                <button
-                    class="btn-agregar-pedido"
-                    data-nombre="Cintillo"
-                    data-precio="18000">
+                <button class="btn-agregar-pedido" data-nombre="Cintillo" data-precio="18000">
                     Agregar al pedido
                 </button>
-
             </article>
-
 
             <!-- SCRUNCHIE -->
-            <article
-                class="producto-card"
-                data-categoria="accesorios regalos personalizados">
-
-                <button
-                    class="btn-favorito"
-                    data-nombre="Scrunchie"
-                    aria-label="Marcar como favorito">
-                    🤍
-                </button>
-
-                <img
-                    src="img/scrunchie a crochet.png"
-                    alt="Scrunchie tejido a crochet"
-                    class="producto-imagen">
-
+            <article class="producto-card" data-categoria="accesorios regalos personalizados">
+                <button class="btn-favorito" data-nombre="Scrunchie" aria-label="Marcar como favorito">🤍</button>
+                <img src="img/scrunchie a crochet.png" alt="Scrunchie tejido a crochet" class="producto-imagen">
                 <h3>Scrunchie 🧶</h3>
+                <p>Scrunchies tejidos a mano, suaves y resistentes, perfectos para un toque tierno.</p>
+                <p class="precio"><strong>$8.000 COP</strong></p>
 
-                <p>
-                    Scrunchies tejidos a mano, suaves y resistentes,
-                    perfectos para darle un toque tierno a tu look.
-                </p>
-
-                <p class="precio">
-                    <strong>$8.000 COP</strong>
-                </p>
+                <div class="colores-lana" data-producto="Scrunchie"></div>
 
                 <div class="personalizacion">
-
                     <label>
-                        Color
-                        <input
-                            type="text"
-                            class="input-color"
-                            placeholder="Ej: rosa pastel">
+                        Acabado / detalle extra
+                        <input type="text" class="input-color" placeholder="Ej: borde ondulado, lazo">
                     </label>
-
                     <label>
                         Cantidad
-                        <input
-                            type="number"
-                            class="input-cantidad"
-                            value="1"
-                            min="1">
+                        <input type="number" class="input-cantidad" value="1" min="1">
                     </label>
-
                 </div>
 
-                <button
-                    class="btn-agregar-pedido"
-                    data-nombre="Scrunchie"
-                    data-precio="8000">
+                <button class="btn-agregar-pedido" data-nombre="Scrunchie" data-precio="8000">
                     Agregar al pedido
                 </button>
-
             </article>
-
         </section>
 
+        <!-- COMBOS Y PACKS REGALO -->
+        <section id="combos">
+            <h2>🎁 Combos y Packs Regalo</h2>
+            <p>Combinaciones tejidas a juego con precio especial para regalar o consentirte.</p>
+
+            <div class="combos-grid">
+                <article class="producto-card" data-categoria="libros regalos personalizados combos">
+                    <span class="badge-combo">Combo Regalo</span>
+                    <button class="btn-favorito" data-nombre="Set Lectura Acogedora" aria-label="Marcar como favorito">🤍</button>
+                    <img src="img/marcapáginas.png" alt="Set lectura tejido a crochet" class="producto-imagen">
+                    <h3>Set Lectura Acogedora 🧶</h3>
+                    <p>1 Marcapáginas + 1 Posavasos tejidos en colores combinados.</p>
+                    <p class="precio"><strong>$19.500 COP</strong> <span class="precio-anterior">$22.000</span></p>
+                    <div class="colores-lana" data-producto="Set Lectura Acogedora"></div>
+                    <div class="personalizacion">
+                        <label>
+                            Dedicatoria / detalle
+                            <input type="text" class="input-color" placeholder="Ej: tarjeta de regalo incluida">
+                        </label>
+                        <label>
+                            Cantidad
+                            <input type="number" class="input-cantidad" value="1" min="1">
+                        </label>
+                    </div>
+                    <button class="btn-agregar-pedido" data-nombre="Set Lectura Acogedora" data-precio="19500">
+                        Agregar al pedido
+                    </button>
+                </article>
+
+                <article class="producto-card" data-categoria="accesorios regalos personalizados combos">
+                    <span class="badge-combo">Combo Look</span>
+                    <button class="btn-favorito" data-nombre="Combo Look Tejido" aria-label="Marcar como favorito">🤍</button>
+                    <img src="img/cintillo.png" alt="Combo cintillo y scrunchie a crochet" class="producto-imagen">
+                    <h3>Combo Look Tejido 🧶</h3>
+                    <p>1 Cintillo + 1 Scrunchie tejidos a juego en tu paleta favorita.</p>
+                    <p class="precio"><strong>$23.000 COP</strong> <span class="precio-anterior">$26.000</span></p>
+                    <div class="colores-lana" data-producto="Combo Look Tejido"></div>
+                    <div class="personalizacion">
+                        <label>
+                            Estilo del combo
+                            <input type="text" class="input-color" placeholder="Ej: mismo tono o contraste pastel">
+                        </label>
+                        <label>
+                            Cantidad
+                            <input type="number" class="input-cantidad" value="1" min="1">
+                        </label>
+                    </div>
+                    <button class="btn-agregar-pedido" data-nombre="Combo Look Tejido" data-precio="23000">
+                        Agregar al pedido
+                    </button>
+                </article>
+
+                <article class="producto-card" data-categoria="accesorios regalos personalizados combos">
+                    <span class="badge-combo">Pack x4</span>
+                    <button class="btn-favorito" data-nombre="Set Mesa x4 Posavasos" aria-label="Marcar como favorito">🤍</button>
+                    <img src="img/p.png" alt="Set de 4 posavasos tejidos a crochet" class="producto-imagen">
+                    <h3>Set Mesa x4 Posavasos 🧶</h3>
+                    <p>Juego de 4 posavasos tejidos bajo pedido en la paleta que elijas.</p>
+                    <p class="precio"><strong>$42.000 COP</strong> <span class="precio-anterior">$48.000</span></p>
+                    <div class="colores-lana" data-producto="Set Mesa x4 Posavasos"></div>
+                    <div class="personalizacion">
+                        <label>
+                            Combinación del set
+                            <input type="text" class="input-color" placeholder="Ej: 2 crema y 2 terracota">
+                        </label>
+                        <label>
+                            Cantidad
+                            <input type="number" class="input-cantidad" value="1" min="1">
+                        </label>
+                    </div>
+                    <button class="btn-agregar-pedido" data-nombre="Set Mesa x4 Posavasos" data-precio="42000">
+                        Agregar al pedido
+                    </button>
+                </article>
+            </div>
+        </section>
 
         <!-- DATO INTERESANTE -->
         <aside>
-
             <h3>Dato interesante</h3>
-
             <p>
-                Cada creación de TEJEBONITO está hecha a mano,
-                cuidando cada detalle del proceso.
+                No acumulamos inventario hecho: la lana conserva mejor su suavidad y forma
+                cuando cada producto se teje especialmente al confirmar tu pedido.
             </p>
-
         </aside>
 
-
         <!-- ¿POR QUÉ ELEGIR TEJEBONITO? -->
-        <section
-            id="por-que-elegir"
-            class="seccion-beneficios">
-
+        <section id="por-que-elegir" class="seccion-beneficios">
             <h2>💕 ¿Por qué elegir TEJEBONITO?</h2>
-
             <p class="intro-beneficios">
-                Cada creación está hecha pensando en darle
-                un toque especial a tus días.
+                Cada creación está hecha pensando en darle un toque especial a tus días.
             </p>
-
-
             <div class="beneficios-container">
-
                 <div class="beneficio-card">
-
-                    <div class="beneficio-icono">
-                        🧶
-                    </div>
-
+                    <div class="beneficio-icono">🧶</div>
                     <h3>Hecho a mano</h3>
-
-                    <p>
-                        Cada producto es elaborado
-                        cuidadosamente a mano.
-                    </p>
-
+                    <p>Cada producto es elaborado cuidadosamente a mano.</p>
                 </div>
-
-
                 <div class="beneficio-card">
-
-                    <div class="beneficio-icono">
-                        🎨
-                    </div>
-
+                    <div class="beneficio-icono">🎨</div>
                     <h3>Diseños personalizados</h3>
-
-                    <p>
-                        Puedes elegir colores y detalles
-                        para crear algo único.
-                    </p>
-
+                    <p>Puedes elegir colores y detalles para crear algo único.</p>
                 </div>
-
-
                 <div class="beneficio-card">
-
-                    <div class="beneficio-icono">
-                        💖
-                    </div>
-
-                    <h3>Hecho con amor</h3>
-
-                    <p>
-                        Cada puntada está hecha con dedicación
-                        y creatividad.
-                    </p>
-
+                    <div class="beneficio-icono">🌿</div>
+                    <h3>Lana siempre fresca</h3>
+                    <p>Tejemos bajo pedido para que tu pieza llegue suave e intacta.</p>
                 </div>
-
-
                 <div class="beneficio-card">
-
-                    <div class="beneficio-icono">
-                        📦
-                    </div>
-
+                    <div class="beneficio-icono">📦</div>
                     <h3>Elaborado bajo pedido</h3>
-
-                    <p>
-                        Creamos tu producto especialmente
-                        para ti.
-                    </p>
-
+                    <p>Creamos tu producto especialmente para ti en 5-7 días.</p>
                 </div>
-
             </div>
-
         </section>
-
 
         <!-- SOBRE NOSOTROS -->
         <section id="nosotros">
-
             <h2>Conoce TEJEBONITO</h2>
-
             <p>
-                TEJEBONITO nació de mi gusto por el crochet
-                y de las ganas de transformar hilos y creatividad
-                en pequeños detalles hechos a mano con amor y dedicación.
+                TEJEBONITO nació de mi gusto por el crochet y de las ganas de transformar
+                hilos y creatividad en pequeños detalles hechos a mano con amor y dedicación.
             </p>
-
             <p>
-                Cada creación lleva tiempo, dedicación y cariño.
-                Mi objetivo es seguir aprendiendo, crear diseños
-                únicos y compartir la magia del crochet con otras personas.
+                Cada creación lleva tiempo, dedicación y cariño. Mi objetivo es seguir aprendiendo,
+                crear diseños únicos y compartir la magia del crochet contigo.
             </p>
-
-            <p>
-                🧶 Hecho a mano &nbsp;
-                ✨ Creativo &nbsp;
-                💖 Con dedicación
-            </p>
-
+            <p>🧶 Hecho a mano &nbsp; ✨ Creativo &nbsp; 💖 Con dedicación</p>
         </section>
-                <div class="asistente-contenedor">
 
-                    <!-- PASO 1 -->
-                    <div class="paso-asistente activo" id="paso1">
+        <!-- ASISTENTE DE ESTILO (ESTRUCTURA CORREGIDA) -->
+        <section id="asistente-estilo">
+            <h2>✨ Asistente de Estilo</h2>
+            <p>Responde 3 preguntas rápidas y te recomendamos tu combinación ideal.</p>
 
-                        <h3>1. ¿Para quién es este detalle?</h3>
-
-                        <div class="opciones-asistente">
-
-                            <button onclick="seleccionarOpcion('destino', 'Un regalo especial', 2)">
-                                🎁 Es un regalo
-                            </button>
-
-                            <button onclick="seleccionarOpcion('destino', 'Un antojo personal', 2)">
-                                ✨ Es un autorregalo
-                            </button>
-
-                        </div>
+            <div class="asistente-contenedor">
+                <div class="paso-asistente activo" id="paso1">
+                    <h3>1. ¿Para quién es este detalle?</h3>
+                    <div class="opciones-asistente">
+                        <button type="button" onclick="seleccionarOpcion('destino', 'Un regalo especial', 2)">
+                            🎁 Es un regalo
+                        </button>
+                        <button type="button" onclick="seleccionarOpcion('destino', 'Un antojo personal', 2)">
+                            ✨ Es un autorregalo
+                        </button>
                     </div>
-
-                    <!-- PASO 2 -->
-                    <div class="paso-asistente" id="paso2">
-
-                        <h3>2. ¿Cuál es la vibra o estilo de colores que prefieres?</h3>
-
-                        <div class="opciones-asistente">
-
-                            <button onclick="seleccionarOpcion('paleta', 'Rosa pastel + Crema', 3)">
-                                🌸 Pastel / Aesthetic (Rosa + Crema)
-                            </button>
-
-                            <button onclick="seleccionarOpcion('paleta', 'Beige + Terracota + Marrón', 3)">
-                                🍂 Tonos Tierra (Beige + Terracota)
-                            </button>
-
-                            <button onclick="seleccionarOpcion('paleta', 'Amarillo girasol + Verde menta', 3)">
-                                🌻 Cálido & Alegre (Amarillo + Menta)
-                            </button>
-
-                            <button onclick="seleccionarOpcion('paleta', 'Lila + Azul cielo', 3)">
-                                💜 Vibrante (Lila + Azul cielo)
-                            </button>
-
-                        </div>
-                    </div>
-
-                    <!-- PASO 3 -->
-                    <div class="paso-asistente" id="paso3">
-
-                        <h3>3. ¿Qué tipo de uso le darás?</h3>
-
-                        <div class="opciones-asistente">
-
-                            <button onclick="finalizarAsistente('Scrunchie', 8000)">
-                                💇‍♀️ Para el cabello / Look diario
-                            </button>
-
-                            <button onclick="finalizarAsistente('Marcapáginas', 10000)">
-                                📚 Para acompañar lecturas
-                            </button>
-
-                            <button onclick="finalizarAsistente('Posavasos', 12000)">
-                                ☕ Para decorar la mesa / escritorio
-                            </button>
-
-                            <button onclick="finalizarAsistente('Cintillo', 18000)">
-                                👑 Un accesorio llamativo y moderno
-                            </button>
-
-                        </div>
-                    </div>
-                <!-- RESULTADO -->
-                <div
-                    class="paso-asistente"
-                    id="pasoResultado">
-
-                    <h3>
-                        ¡Tu combinación perfecta está lista! 🎉
-                    </h3>
-
-                    <div
-                        id="resumenRecomendacion"
-                        class="resumen-recomendacion">
-                    </div>
-
-                    <button
-                        id="btnAgregarAsistente"
-                        class="btn-agregar-pedido">
-                        🛍️ Agregar esta combinación al pedido
-                    </button>
-
-                    <br><br>
-
-                    <button
-                        onclick="reiniciarAsistente()"
-                        class="btn-vaciar-carrito">
-                        🔄 Volver a intentar
-                    </button>
-
                 </div>
 
-            </div>
+                <div class="paso-asistente" id="paso2">
+                    <h3>2. ¿Cuál es la vibra o estilo de colores que prefieres?</h3>
+                    <div class="opciones-asistente">
+                        <button type="button" onclick="seleccionarOpcion('paleta', 'Rosa pastel + Crema', 3)">
+                            🌸 Pastel / Aesthetic (Rosa + Crema)
+                        </button>
+                        <button type="button" onclick="seleccionarOpcion('paleta', 'Beige + Terracota + Marrón', 3)">
+                            🍂 Tonos Tierra (Beige + Terracota)
+                        </button>
+                        <button type="button" onclick="seleccionarOpcion('paleta', 'Amarillo girasol + Verde menta', 3)">
+                            🌻 Cálido & Alegre (Amarillo + Menta)
+                        </button>
+                        <button type="button" onclick="seleccionarOpcion('paleta', 'Lila + Azul cielo', 3)">
+                            💜 Vibrante (Lila + Azul cielo)
+                        </button>
+                    </div>
+                </div>
 
+                <div class="paso-asistente" id="paso3">
+                    <h3>3. ¿Qué tipo de uso le darás?</h3>
+                    <div class="opciones-asistente">
+                        <button type="button" onclick="finalizarAsistente('Scrunchie', 8000)">
+                            💇‍♀️ Para el cabello / Look diario
+                        </button>
+                        <button type="button" onclick="finalizarAsistente('Marcapáginas', 10000)">
+                            📚 Para acompañar lecturas
+                        </button>
+                        <button type="button" onclick="finalizarAsistente('Posavasos', 12000)">
+                            ☕ Para decorar la mesa / escritorio
+                        </button>
+                        <button type="button" onclick="finalizarAsistente('Cintillo', 18000)">
+                            👑 Un accesorio llamativo y moderno
+                        </button>
+                    </div>
+                </div>
+
+                <div class="paso-asistente" id="pasoResultado">
+                    <h3>¡Tu combinación perfecta está lista! 🎉</h3>
+                    <div id="resumenRecomendacion" class="resumen-recomendacion"></div>
+                    <button type="button" id="btnAgregarAsistente" class="btn-agregar-pedido">
+                        🛍️ Agregar esta combinación al pedido
+                    </button>
+                    <br><br>
+                    <button type="button" onclick="reiniciarAsistente()" class="btn-vaciar-carrito">
+                        🔄 Volver a intentar
+                    </button>
+                </div>
+            </div>
         </section>
 
+        <!-- PREGUNTAS FRECUENTES Y CUIDADOS -->
+        <section id="faq">
+            <h2>🫧 Cuidados de la lana & Preguntas frecuentes</h2>
+            <p>Todo lo que necesitas saber antes de hacer tu pedido personalizado.</p>
 
-<!-- CONTACTO Y FORMULARIO DE CONSULTAS -->
-<section id="contacto">
+            <div class="faq-lista">
+                <div class="faq-item activo">
+                    <button type="button" class="faq-pregunta">🧶 ¿Por qué trabajan 100% bajo pedido?</button>
+                    <div class="faq-respuesta">
+                        La lana pierde suavidad y forma si se almacena hecha durante meses. Al tejer bajo pedido, garantizamos fibras frescas y tu combinación exacta de colores.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-pregunta">🫧 ¿Cómo debo lavar mis piezas tejidas?</button>
+                    <div class="faq-respuesta">
+                        Lava a mano con agua fría y jabón suave, sin retorcer. Presiona suavemente con una toalla y deja secar extendido a la sombra.
+                    </div>
+                </div>
+            
+                <div class="faq-item">
+                    <button type="button" class="faq-pregunta">📦 ¿Cuánto tarda y cómo se coordina el envío?</button>
+                    <div class="faq-respuesta">
+                        Tardamos de 5 a 7 días hábiles según la cantidad de piezas. Al enviarnos tu carrito por WhatsApp coordinamos el abono inicial y la entrega local.
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <h2>💌 Contáctanos</h2>
+        <!-- CONTACTO -->
+        <section id="contacto">
+            <h2>💌 Contáctanos</h2>
+            <p>
+                ¿Tienes una idea, quieres personalizar un producto
+                o necesitas más información? ¡Escríbenos!
+            </p>
 
-    <p>
-        ¿Tienes una idea, quieres personalizar un producto
-        o necesitas más información? ¡Escríbenos!
-    </p>
+            <form id="formularioConsulta">
+                <label for="nombreConsulta">Tu nombre</label>
+                <input type="text" id="nombreConsulta" name="nombre" placeholder="Escribe tu nombre" required>
 
-    <form id="formularioConsulta">
+                <label for="correoConsulta">Tu correo electrónico</label>
+                <input type="email" id="correoConsulta" name="correo" placeholder="ejemplo@correo.com" required>
 
-        <label for="nombreConsulta">Tu nombre</label>
-        <input type="text" id="nombreConsulta" name="nombre"
-            placeholder="Escribe tu nombre" required>
+                <label for="productoConsulta">¿Qué producto te interesa?</label>
+                <input type="text" id="productoConsulta" name="producto" placeholder="Ej: Scrunchie, cintillo..." required>
 
-        <label for="correoConsulta">Tu correo electrónico</label>
-        <input type="email" id="correoConsulta" name="correo"
-            placeholder="ejemplo@correo.com" required>
+                <label for="mensajeConsulta">Tu mensaje</label>
+                <textarea id="mensajeConsulta" name="mensaje" placeholder="Cuéntanos qué tienes en mente..." rows="5" required></textarea>
 
-        <label for="productoConsulta">¿Qué producto te interesa?</label>
-        <input type="text" id="productoConsulta" name="producto"
-            placeholder="Ej: Scrunchie, cintillo..." required>
+                <button type="submit" id="btnEnviarConsulta">Enviar consulta 💌</button>
+            </form>
+        </section>
 
-        <label for="mensajeConsulta">Tu mensaje</label>
-        <textarea id="mensajeConsulta" name="mensaje"
-            placeholder="Cuéntanos qué tienes en mente..."
-            rows="5" required></textarea>
+    </main>
 
-        <button type="submit" id="btnEnviarConsulta">
-            Enviar consulta 💌
-        </button>
+    <!-- PANEL ADMINISTRATIVO DISCRETO (HASTA ABAJO) -->
+    <section id="panelAdmin" class="panel-admin oculto" aria-label="Panel administrativo">
+        <div class="panel-admin-header">
+            <h3>🔒 Panel Administrativo</h3>
+            <button type="button" id="btnCerrarAdmin" aria-label="Cerrar panel admin">✕</button>
+        </div>
 
-    </form>
+        <form id="formAdminLogin" class="admin-login-form">
+            <p class="admin-ayuda">Inicia sesión con tus credenciales</p>
+            <label for="adminUsuario">Usuario</label>
+            <input type="text" id="adminUsuario" required placeholder="Usuario admin">
 
-</section>
+            <label for="adminContrasena">Contraseña</label>
+            <input type="password" id="adminContrasena" required placeholder="Contraseña">
 
+            <p id="adminErrorMsg" class="admin-error"></p>
+            <button type="submit" class="btn-agregar-pedido">Entrar</button>
+        </form>
+
+        <div id="adminDashboard" class="oculto">
+            <div class="admin-topbar">
+                <span id="adminBienvenida"></span>
+                <button type="button" id="btnAdminSalir" class="btn-vaciar-carrito">Cerrar sesión</button>
+            </div>
+
+            <div class="admin-bloque">
+                <h4>🎨 Disponibilidad de colores</h4>
+                <div id="adminColoresLista" class="admin-colores-grid"></div>
+            </div>
+
+            <div class="admin-bloque">
+                <h4>💌 Consultas recibidas</h4>
+                <div id="adminConsultasLista"></div>
+            </div>
+        </div>
+    </section>
 
     <!-- PIE DE PÁGINA -->
     <footer>
-
-        <p>
-            &copy; 2026 TEJEBONITO - Crochet hecho a mano 🧶
-        </p>
-
+        <p>&copy; 2026 TEJEBONITO - Crochet hecho a mano 🧶</p>
+        <button type="button" id="btnAbrirAdmin" class="btn-admin-discreto" title="Acceso administrativo">
+            🔒 Admin
+        </button>
     </footer>
 
-<!-- ========================================
-     TEJEBOT 🤖
-======================================== -->
-
-<div id="tejebot-widget">
-
-    <!-- BOTÓN PARA ABRIR -->
-    <button
-        id="tejebot-abrir"
-        aria-label="Abrir TejeBot">
-        🧶
-    </button>
-
-    <!-- VENTANA DEL CHAT -->
-    <section
-        id="tejebot-ventana"
-        aria-label="Chat con TejeBot"
-        aria-hidden="true">
-
-        <!-- ENCABEZADO -->
-        <div class="tejebot-header">
-
-            <div>
-                <h3>🧶 TejeBot</h3>
-                <p>Tu asistente de crochet</p>
+    <!-- TEJEBOT -->
+    <div id="tejebot-widget">
+        <button id="tejebot-abrir" aria-label="Abrir TejeBot">🧶</button>
+        <section id="tejebot-ventana" aria-label="Chat con TejeBot" aria-hidden="true">
+            <div class="tejebot-header">
+                <div>
+                    <h3>🧶 TejeBot</h3>
+                    <p>Tu asistente de crochet</p>
+                </div>
+                <button id="tejebot-cerrar" aria-label="Cerrar TejeBot">✕</button>
             </div>
-
-            <button
-                id="tejebot-cerrar"
-                aria-label="Cerrar TejeBot">
-                ✕
-            </button>
-
-        </div>
-
-        <!-- MENSAJES -->
-        <div
-            id="tejebot-mensajes"
-            aria-live="polite">
-
-            <div class="tejebot-mensaje bot">
-                ¡Hola! 😊 Soy TejeBot.
-                Estoy aquí para ayudarte con tus dudas
-                sobre crochet y manualidades. ¿Qué
-                te gustaría aprender hoy? 🧶
+            <div id="tejebot-mensajes" aria-live="polite">
+                <div class="tejebot-mensaje bot">
+                    ¡Hola! 😊 Soy TejeBot. Estoy aquí para ayudarte con tus dudas
+                    sobre crochet, colores disponibles y cuidados. ¿En qué te ayudo? 🧶
+                </div>
             </div>
+            <form id="tejebot-formulario">
+                <input type="text" id="tejebot-input" placeholder="Escribe tu pregunta..." maxlength="1000" autocomplete="off" required>
+                <button type="submit" id="tejebot-enviar" aria-label="Enviar mensaje">➤</button>
+            </form>
+        </section>
+    </div>
 
-        </div>
+    <!-- BOTONES FLOTANTES -->
+    <button id="volverArriba" title="Volver arriba">↑</button>
 
-        <!-- FORMULARIO -->
-        <form id="tejebot-formulario">
-
-            <input
-                type="text"
-                id="tejebot-input"
-                placeholder="Escribe tu pregunta..."
-                maxlength="1000"
-                autocomplete="off"
-                required>
-
-            <button
-                type="submit"
-                id="tejebot-enviar"
-                aria-label="Enviar mensaje">
-                ➤
-            </button>
-
-        </form>
-
-    </section>
-
-</div>
-
-    <!-- BOTONES FLOTANTES Y PANELES -->
-
-    <button
-        id="volverArriba"
-        title="Volver arriba">
-        ↑
-    </button>
-
-
-    <a
-        id="whatsappFlotante"
-       href="https://wa.me/573117107908"
-        target="_blank"
-        title="Escríbenos por WhatsApp">
+    <a id="whatsappFlotante" href="https://wa.me/573117107908" target="_blank" rel="noreferrer" title="Escríbenos por WhatsApp">
         💬
     </a>
 
-
-    <!-- GALERÍA / LIGHTBOX -->
-
-    <div
-        class="lightbox"
-        id="lightbox">
-
-        <span
-            class="lightbox__cerrar"
-            id="cerrarLightbox">
-            &times;
-        </span>
-
-        <img
-            src=""
-            alt=""
-            id="lightboxImagen">
-
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox__cerrar" id="cerrarLightbox">&times;</span>
+        <img alt="Vista ampliada" id="lightboxImagen">
     </div>
 
-
     <!-- CARRITO DE PEDIDO -->
-
-    <button
-        id="btnCarrito"
-        title="Ver pedido">
+    <button id="btnCarrito" title="Ver pedido">
         🛒 <span id="contadorCarrito">0</span>
     </button>
 
-
-    <div
-        class="panel-carrito"
-        id="panelCarrito">
-
-        <button
-            class="panel-close"
-            data-panel="panelCarrito"
-            aria-label="Cerrar carrito">
-            ×
-        </button>
-
+    <div class="panel-carrito" id="panelCarrito">
+        <button class="panel-close" data-panel="panelCarrito" aria-label="Cerrar carrito">×</button>
         <h3>Tu pedido</h3>
-
         <ul id="listaCarrito"></ul>
+        <p id="carritoVacioMsg">Aún no has agregado productos.</p>
+        <p id="totalCarrito" class="total-carrito">Total: <strong>$0 COP</strong></p>
 
-        <p id="carritoVacioMsg">
-            Aún no has agregado productos.
-        </p>
+        <div class="datos-entrega-carrito">
+            <label for="clienteNombreCarrito">Tu nombre</label>
+            <input type="text" id="clienteNombreCarrito" placeholder="Para personalizar tu pedido">
 
-        <p
-            id="totalCarrito"
-            class="total-carrito">
-            Total: <strong>$0 COP</strong>
-        </p>
+            <label for="clienteEntregaCarrito">Tipo de entrega</label>
+            <select id="clienteEntregaCarrito">
+                <option value="Domicilio local">Domicilio local</option>
+                <option value="Envío nacional">Envío nacional</option>
+            </select>
+        </div>
 
-        <button
-            id="btnVaciarCarrito"
-            class="btn-vaciar-carrito">
-            Vaciar carrito
-        </button>
-
-        <a
-            href="#"
-            id="btnEnviarPedido"
-            class="boton-whatsapp-pedido"
-            target="_blank">
+        <button id="btnVaciarCarrito" class="btn-vaciar-carrito">Vaciar carrito</button>
+        <a href="#" id="btnEnviarPedido" class="boton-whatsapp-pedido" target="_blank" rel="noreferrer">
             Enviar pedido por WhatsApp
         </a>
-
     </div>
 
-
     <!-- FAVORITOS -->
-
-    <button
-        id="btnFavoritos"
-        title="Ver favoritos">
+    <button id="btnFavoritos" title="Ver favoritos">
         ❤️ <span id="contadorFavoritos">0</span>
     </button>
 
-
-    <div
-        class="panel-favoritos"
-        id="panelFavoritos">
-
-        <button
-            class="panel-close"
-            data-panel="panelFavoritos"
-            aria-label="Cerrar favoritos">
-            ×
-        </button>
-
+    <div class="panel-favoritos" id="panelFavoritos">
+        <button class="panel-close" data-panel="panelFavoritos" aria-label="Cerrar favoritos">×</button>
         <h3>Tus favoritos</h3>
-
         <ul id="listaFavoritos"></ul>
-
-        <p id="favoritosVacioMsg">
-            Aún no tienes favoritos.
-        </p>
-
+        <p id="favoritosVacioMsg">Aún no tienes favoritos.</p>
     </div>
 
-
-    <!-- NOTIFICACIÓN FLOTANTE (TOAST) -->
-
-    <div
-        id="toastNotification"
-        class="toast-notification">
-
+    <!-- TOAST -->
+    <div id="toastNotification" class="toast-notification">
         <span id="toastIcon">✨</span>
-
-        <span id="toastMessage">
-            ¡Producto agregado con éxito!
-        </span>
-
+        <span id="toastMessage">¡Producto agregado con éxito!</span>
     </div>
 
-
-    <!-- ARCHIVO JAVASCRIPT -->
     <script src="script.js"></script>
-
 </body>
 </html>
